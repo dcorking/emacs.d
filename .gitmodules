@@ -1,0 +1,3 @@
+[submodule "site-lisp/rails-reloaded"]
+	path = site-lisp/rails-reloaded
+	url = git://github.com/dima-exe/emacs-rails-reloaded.git
