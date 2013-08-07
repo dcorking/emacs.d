@@ -1,3 +1,4 @@
+(require-package 'cl-lib '(0 2))
 (require 'cl-lib)
 
 (defun locale-is-utf8-p ()
@@ -11,8 +12,6 @@
 (when (or window-system (locale-is-utf8-p))
   (setq utf-translate-cjk-mode nil) ; disable CJK coding/encoding (Chinese/Japanese/Korean characters)
   (set-language-environment 'utf-8)
-  (when *is-carbon-emacs*
-    (set-keyboard-coding-system 'utf-8-mac))
   (setq locale-coding-system 'utf-8)
   (set-default-coding-systems 'utf-8)
   (set-terminal-coding-system 'utf-8)
