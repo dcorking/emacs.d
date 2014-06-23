@@ -1,5 +1,5 @@
-(require-package 'json-mode)
 (when (>= emacs-major-version 24)
+  (require-package 'json-mode)
   (require-package 'js2-mode)
   (require-package 'ac-js2)
   (require-package 'coffee-mode))
