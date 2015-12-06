@@ -31,3 +31,11 @@ site-lisp/package/
 /emms/
 /.smex-items
 /image-dired/
+/eshell
+/.cask/
+/.sx/
+/org-clock-save.el
+/ditaa*.jar
+/ido.last
+/recentf
+/viper
