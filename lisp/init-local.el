@@ -6,7 +6,7 @@
 (require 'sml-mode)
 
 ;;; http://www.emacswiki.org/emacs/ruby-debug
-(require 'ruby-debug)
-(provide 'init-ruby-debug)
+;; (require 'ruby-debug)
+;; (provide 'init-ruby-debug)
 
 (provide 'init-local)
