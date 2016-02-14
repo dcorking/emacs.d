@@ -54,7 +54,10 @@
 (require 'init-themes)
 (require 'init-osx-keys)
 (require 'init-gui-frames)
-(require 'init-dired)
+;; Seems to be causing
+;; `error in process sentinel: Wrong type argument: stringp, nil`
+;; on desktop-read
+;; (require 'init-dired)
 (require 'init-isearch)
 (require 'init-grep)
 (require 'init-uniquify)
