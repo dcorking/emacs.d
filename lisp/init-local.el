@@ -14,16 +14,11 @@
 (require-package 'sml-mode)
 (require 'sml-mode)
 
-;;
-;; OCaml dialect of ML language
-;;
-;; Use the opam installed utop
-;; https://github.com/diml/utop/blob/master/README.md
-(setq utop-command "opam config exec -- utop -emacs")
-;; Ocaml indentation
-(add-to-list 'load-path "/Users/dcorking/.opam/system/share/emacs/site-lisp")
-(require 'ocp-indent)
-;; TODO require packages utop and tuareg
+;; ## added by OPAM user-setup for emacs / base ## 56ab50dc8996d2bb95e7856a6eddb17b ## you can edit, but keep this line
+(require 'opam-user-setup "~/.emacs.d/opam-user-setup.el")
+;; ## end of OPAM user-setup addition for emacs / base ## keep this line
+
+;; TODO require packages utop and tuareg - or see above ^^
 ;; TODO flycheck for tuareg mode
 
 ;;
@@ -40,5 +35,20 @@
 ;; Error (frameset): Wrong type argument: number-or-marker-p, nil
 
 ;; TODO select Menlo font for Mac OS X and DejaVu Sans Mono for GNU/Linux
+
+;; Github pull requests in Magit
+(require-package 'magit-gh-pulls)
+(require 'magit-gh-pulls)
+(add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls)
+
+
+;; Ethereum Solidity
+(require 'solidity-mode)
+
+;; JSX
+(require-package 'rjsx-mode)
+(require 'rjsx-mode)
+(add-to-list 'auto-mode-alist '("\\.jsx\\'" . rjsx-mode))
+(autoload 'rjsx-mode "rjsx-mode" "Real JSX mode" t)
 
 (provide 'init-local)
