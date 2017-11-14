@@ -41,14 +41,21 @@
 (require 'magit-gh-pulls)
 (add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls)
 
-
 ;; Ethereum Solidity
 (require 'solidity-mode)
+
+;;JS
+(require-package 'prettier-js)
+(require 'prettier-js)
+(dolist (hook '(js2-mode-hook js-mode-hook json-mode-hook))
+  (add-hook hook 'prettier-js-mode))
 
 ;; JSX
 (require-package 'rjsx-mode)
 (require 'rjsx-mode)
 (add-to-list 'auto-mode-alist '("\\.jsx\\'" . rjsx-mode))
 (autoload 'rjsx-mode "rjsx-mode" "Real JSX mode" t)
+(add-hook 'rjsx-mode-hook 'prettier-js-mode)
 
 (provide 'init-local)
+;;; init-local.el ends here

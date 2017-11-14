@@ -14,6 +14,12 @@
  '(fci-rule-color "#eee8d5")
  '(global-linum-mode t)
  '(indent-tabs-mode nil)
+ '(js2-include-node-externs t)
+ '(js2-mode-show-parse-errors nil)
+ '(js2-mode-show-strict-warnings nil)
+ '(magit-fetch-arguments (quote ("--prune")))
+ '(magit-log-arguments (quote ("--graph" "--color" "--decorate" "-n512")))
+ '(prettier-js-command "yarn run prettier")
  '(ruby-encoding-map
    (quote
     ((us-ascii)
@@ -22,7 +28,17 @@
      (japanese-cp932 . cp932)
      (utf-8))))
  '(ruby-insert-encoding-magic-comment nil)
+ '(safe-local-variable-values
+   (quote
+    ((no-byte-compile t)
+     (frozen-string-literal . true)
+     (ruby-compilation-executable . "ruby")
+     (ruby-compilation-executable . "ruby1.8")
+     (ruby-compilation-executable . "ruby1.9")
+     (ruby-compilation-executable . "rbx")
+     (ruby-compilation-executable . "jruby"))))
  '(session-use-package t nil (session))
+ '(timeclock-mode-line-display t)
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote
