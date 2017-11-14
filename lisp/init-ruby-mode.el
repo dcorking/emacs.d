@@ -6,12 +6,13 @@
                "Rakefile\\'" "\\.rake\\'" "\\.rxml\\'"
                "\\.rjs\\'" "\\.irbrc\\'" "\\.pryrc\\'" "\\.builder\\'" "\\.ru\\'"
                "\\.gemspec\\'" "Gemfile\\'" "Kirkfile\\'")
+(add-auto-mode 'conf-mode "Gemfile\\.lock\\'")
 
-(setq ruby-use-encoding-map nil)
+(setq-default
+ ruby-use-encoding-map nil
+ ruby-insert-encoding-magic-comment nil)
 
 (after-load 'ruby-mode
-  (define-key ruby-mode-map (kbd "TAB") 'indent-for-tab-command)
-
   ;; Stupidly the non-bundled ruby-mode isn't a derived mode of
   ;; prog-mode: we run the latter's hooks anyway in that case.
   (add-hook 'ruby-mode-hook
@@ -21,21 +22,20 @@
 
 (add-hook 'ruby-mode-hook 'subword-mode)
 
-;; TODO: hippie-expand ignoring : for names in ruby-mode
-;; TODO: hippie-expand adaptor for auto-complete sources
-
 (after-load 'page-break-lines
   (push 'ruby-mode page-break-lines-modes))
+
+(require-package 'rspec-mode)
+
+
+(define-derived-mode brewfile-mode ruby-mode "Brewfile"
+  "A major mode for Brewfiles, used by homebrew-bundle on MacOS.")
+
+(add-auto-mode 'brewfile-mode "Brewfile\\'")
 
 
 ;;; Inferior ruby
 (require-package 'inf-ruby)
-(require-package 'ac-inf-ruby)
-(after-load 'auto-complete
-  (add-to-list 'ac-modes 'inf-ruby-mode))
-(add-hook 'inf-ruby-mode-hook 'ac-inf-ruby-enable)
-(after-load 'inf-ruby
-  (define-key inf-ruby-mode-map (kbd "TAB") 'auto-complete))
 
 
 
@@ -53,29 +53,13 @@
 
 
 ;;; Robe
-(require-package 'robe)
-(after-load 'ruby-mode
-  (add-hook 'ruby-mode-hook 'robe-mode))
-
-(defun sanityinc/maybe-enable-robe-ac ()
-  "Enable/disable robe auto-complete source as necessary."
-  (if robe-mode
-      (progn
-        (add-hook 'ac-sources 'ac-source-robe nil t)
-        (set-auto-complete-as-completion-at-point-function))
-    (remove-hook 'ac-sources 'ac-source-robe)))
-
-(after-load 'robe
-  (add-hook 'robe-mode-hook 'sanityinc/maybe-enable-robe-ac))
-
-
-
-;; Customise highlight-symbol to not highlight do/end/class/def etc.
-(defun sanityinc/suppress-ruby-mode-keyword-highlights ()
-  "Suppress highlight-symbol for do/end etc."
-  (set (make-local-variable 'highlight-symbol-ignore-list)
-       (list (concat "\\_<" (regexp-opt '("do" "end")) "\\_>"))))
-(add-hook 'ruby-mode-hook 'sanityinc/suppress-ruby-mode-keyword-highlights)
+(when (maybe-require-package 'robe)
+  (after-load 'ruby-mode
+    (add-hook 'ruby-mode-hook 'robe-mode))
+  (after-load 'company
+    (dolist (hook '(ruby-mode-hook inf-ruby-mode-hook html-erb-mode-hook haml-mode))
+      (add-hook hook
+                (lambda () (sanityinc/local-push-company-backend 'company-robe))))))
 
 
 
@@ -85,10 +69,16 @@
 
 
 
-;;; YAML
+(require-package 'goto-gem)
 
-(maybe-require-package 'yaml-mode)
+
+(require-package 'bundler)
 
+
+(when (maybe-require-package 'yard-mode)
+  (add-hook 'ruby-mode-hook 'yard-mode)
+  (after-load 'yard-mode
+    (diminish 'yard-mode)))
 
 
 ;;; ERB
@@ -115,7 +105,9 @@
 
 (add-auto-mode 'html-erb-mode "\\.rhtml\\'" "\\.html\\.erb\\'")
 (add-to-list 'auto-mode-alist '("\\.jst\\.ejs\\'"  . html-erb-mode))
-(mmm-add-mode-ext-class 'yaml-mode "\\.yaml\\'" 'erb)
+
+(mmm-add-mode-ext-class 'yaml-mode "\\.yaml\\(\\.erb\\)?\\'" 'erb)
+(sanityinc/set-up-mode-for-erb 'yaml-mode)
 
 (dolist (mode (list 'js-mode 'js2-mode 'js3-mode))
   (mmm-add-mode-ext-class mode "\\.js\\.erb\\'" 'erb))

@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/purcell/emacs.d.png?branch=master)](https://travis-ci.org/purcell/emacs.d)
+<a href="https://www.patreon.com/sanityinc"><img alt="Support me" src="https://img.shields.io/badge/Support%20Me-%F0%9F%92%97-ff69b4.svg"></a>
 
 # A reasonable Emacs config
 
@@ -23,17 +24,19 @@ config adds improved defaults and extended support for the following:
 * Erlang
 * Common Lisp (with Slime)
 
-In particular, there's a nice config for *tab autocompletion*, and
-`flycheck` is used to immediately highlight syntax errors in Ruby, HAML,
-Python, Javascript, PHP and a number of other languages.
+In particular, there's a nice config for *autocompletion* with
+[company](https://company-mode.github.io/), and
+[flycheck](http://www.flycheck.org) is used to immediately highlight
+syntax errors in Ruby, Python, Javascript, Haskell and a number of
+other languages.
 
 ## Supported Emacs versions
 
-The config should run on Emacs 23.3 or greater and is designed to
-degrade smoothly - see the Travis build - but note that Emacs 24 and
-above is required for an increasing number of key packages, including
-`magit` and `flycheck`, so to get full you should use the latest Emacs
-version available to you.
+The config should run on Emacs 24.3 or greater and is designed to
+degrade smoothly - see the Travis build - but note that Emacs 24.5 and
+above is required for an increasing number of key packages, so to get
+full functionality you should use the latest Emacs version available
+to you.
 
 Some Windows users might need to follow
 [these instructions](http://xn--9dbdkw.se/diary/how_to_enable_GnuTLS_for_Emacs_24_on_Windows/index.en.html)
@@ -61,16 +64,6 @@ encounter any errors at that stage, try restarting Emacs, and possibly
 running `M-x package-refresh-contents` before doing so.
 
 
-
-## Important note about `ido`
-
-This config enables `ido-mode` completion in the minibuffer wherever
-possible, which might confuse you when trying to open files using
-<kbd>C-x C-f</kbd>, e.g. when you want to open a directory to use
-`dired` -- if you get stuck, use <kbd>C-f</kbd> to drop into the
-regular `find-file` prompt. (You might want to customize the
-`ido-show-dot-for-dired` variable if this is an issue for you.)
-
 ## Updates
 
 Update the config with `git pull`. You'll probably also want/need to update
@@ -78,10 +71,16 @@ the third-party packages regularly too:
 
 <kbd>M-x package-list-packages</kbd>, then <kbd>U</kbd> followed by <kbd>x</kbd>.
 
-## Adding your own customization
+You should usually restart Emacs after pulling changes or updating
+packages so that they can take effect. Emacs should usually restore
+your working buffers when you restart due to this configuration's use
+of the `desktop` and `session` packages.
 
-To add your own customization, use <kbd>M-x customize</kbd> and/or
-create a file `~/.emacs.d/lisp/init-local.el` which looks like this:
+## Changing themes and adding your own customization
+
+To add your own customization, use <kbd>M-x customize</kbd>, <kbd>M-x
+customize-themes</kbd> etc. and/or create a file
+`~/.emacs.d/lisp/init-local.el` which looks like this:
 
 ```el
 ... your code here ...
@@ -94,6 +93,11 @@ you can also create an `~/.emacs.d/lisp/init-preload-local.el` file.
 
 If you plan to customize things more extensively, you should probably
 just fork the repo and hack away at the config to make it your own!
+Remember to regularly merge in changes from this repo, so that your
+config remains compatible with the latest package and Emacs versions.
+
+*Please note that I cannot provide support for customised versions of
+this configuration.*
 
 ## Similar configs
 
@@ -110,10 +114,10 @@ versions (see "Updates" above). If you still experience problems, go ahead and
 
 <hr>
 
-[![](http://api.coderwall.com/purcell/endorsecount.png)](http://coderwall.com/purcell)
+[Support this project and my other Open Source work](https://www.patreon.com/sanityinc)
 
 [![](http://www.linkedin.com/img/webpromo/btn_liprofile_blue_80x15.png)](http://uk.linkedin.com/in/stevepurcell)
 
 [sanityinc.com](http://www.sanityinc.com/)
 
-[@sanityinc](https://twitter.com/)
+[@sanityinc](https://twitter.com/sanityinc)

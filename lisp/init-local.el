@@ -57,5 +57,12 @@
 (autoload 'rjsx-mode "rjsx-mode" "Real JSX mode" t)
 (add-hook 'rjsx-mode-hook 'prettier-js-mode)
 
+;; flycheck
+;; Override default flycheck triggers
+(setq flycheck-check-syntax-automatically '(save idle-change new-line mode-enabled)
+      flycheck-idle-change-delay 0.8)
+
+(setq flycheck-display-errors-function #'flycheck-display-error-messages-unless-error-list)
+
 (provide 'init-local)
 ;;; init-local.el ends here
