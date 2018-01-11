@@ -19,7 +19,14 @@
  '(js2-mode-show-strict-warnings nil)
  '(magit-fetch-arguments (quote ("--prune")))
  '(magit-log-arguments (quote ("--graph" "--color" "--decorate" "-n512")))
+ '(nsm-save-host-names t)
+ '(package-selected-packages
+   (quote
+    (pug-mode uptimes rjsx-mode solidity-mode yari yard-mode yagist writeroom-mode whole-line-or-region whitespace-cleanup-mode wgrep vc-darcs unfill undo-tree typescript-mode toml-mode tidy textile-mode terraform-mode tagedit symbol-overlay switch-window sql-indent sml-mode smex smarty-mode slime-company skewer-less session scss-mode scratch sass-mode ruby-hash-syntax ruby-compilation rspec-mode robe restclient regex-tool rainbow-mode rainbow-delimiters racer projectile-rails project-local-variables prettier-js pip-requirements php-mode paredit-everywhere page-break-lines osx-location origami org-pomodoro org-fstree org-cliplink nlinum multiple-cursors multi-term move-dup mmm-mode markdown-mode magit-gh-pulls lua-mode list-unicode-display less-css-mode ledger-mode js-comint ivy-historian ipretty intero immortal-scratch ibuffer-vc httprepl htmlize hippie-expand-slime hindent highlight-quoted highlight-escape-sequences guide-key grab-mac-link goto-gem gnuplot gitignore-mode github-issues github-clone gitconfig-mode git-timemachine git-messenger git-blamed fullframe flycheck-package flycheck-ledger flycheck-elm flycheck-color-mode-line flycheck-clojure expand-region exec-path-from-shell erlang elm-mode elisp-slime-nav elein dynamic-spaces dsvn dockerfile-mode docker-compose-mode docker disable-mouse diminish diff-hl default-text-scale darcsum csv-nav csv-mode css-eldoc counsel company-quickhelp company-anaconda command-log-mode color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized coffee-mode cmd-to-echo cljsbuild-mode cl-lib-highlight cask-mode bundler bug-reference-github browse-kill-ring browse-at-remote beacon avy auto-compile anzu aggressive-indent add-node-modules-path)))
  '(prettier-js-command "yarn run prettier")
+ '(projectile-globally-ignored-directories
+   (quote
+    (".idea" ".ensime_cache" ".eunit" ".git" ".hg" ".fslckout" "_FOSSIL_" ".bzr" "_darcs" ".tox" ".svn" ".stack-work" "node_modules")))
  '(ruby-encoding-map
    (quote
     ((us-ascii)
