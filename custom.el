@@ -11,6 +11,11 @@
  '(custom-safe-themes
    (quote
     ("06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" "4cf3221feff536e2b3385209e9b9dc4c2e0818a69a1cdb4b522756bcdf4e00a4" default)))
+ '(default-frame-alist
+    (quote
+     ((internal-border-width . 0)
+      (vertical-scroll-bars)
+      (font . "-*-Menlo-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1"))))
  '(fci-rule-color "#eee8d5")
  '(global-linum-mode t)
  '(indent-tabs-mode nil)
