@@ -15,7 +15,7 @@
     (quote
      ((internal-border-width . 0)
       (vertical-scroll-bars)
-      (font . "-*-Menlo-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1"))))
+      (font . "14"))))
  '(fci-rule-color "#eee8d5")
  '(global-linum-mode t)
  '(indent-tabs-mode nil)
