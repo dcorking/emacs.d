@@ -65,7 +65,5 @@
 
 (setq flycheck-display-errors-function #'flycheck-display-error-messages-unless-error-list)
 
-(maybe-require-package 'project-local-variables)
-
 (provide 'init-local)
 ;;; init-local.el ends here
