@@ -42,6 +42,7 @@
 (add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls)
 
 ;; Ethereum Solidity
+(maybe-require-package 'solidity-mode)
 (require 'solidity-mode)
 
 ;;JS
