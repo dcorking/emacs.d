@@ -65,5 +65,19 @@
 
 (setq flycheck-display-errors-function #'flycheck-display-error-messages-unless-error-list)
 
+;;; https://www.emacswiki.org/emacs/SystemTrash#toc5
+(defun system-move-file-to-trash (file)
+  "Use \"trash\" to move FILE to the system trash.
+When using Homebrew, install it using \"brew install trash\"."
+  (call-process (executable-find "trash")
+                nil 0 nil
+                file))
+
+;;; Edit with Emacs extenstion for Chrome browser
+;;; chrome-extension://ljobjlafonikaiipfkggjbhkghgicgoh/fancy-settings/source/index.html
+(when (require 'edit-server nil t)
+  (setq edit-server-new-frame nil)
+  (edit-server-start))
+
 (provide 'init-local)
 ;;; init-local.el ends here
