@@ -15,6 +15,9 @@
  '(delete-by-moving-to-trash nil)
  '(fci-rule-color "#eee8d5")
  '(global-linum-mode t)
+ '(gnutls-trustfiles
+   (quote
+    ("/etc/ssl/certs/ca-certificates.crt" "/etc/pki/tls/certs/ca-bundle.crt" "/etc/ssl/ca-bundle.pem" "/usr/ssl/certs/ca-bundle.crt" "/usr/local/share/certs/ca-root-nss.crt" "/Users/dcorking/SystemKeychainCertificates.pem")))
  '(indent-tabs-mode nil)
  '(js2-include-node-externs t)
  '(js2-mode-show-parse-errors nil)
