@@ -36,10 +36,10 @@
 
 ;; TODO select Menlo font for Mac OS X and DejaVu Sans Mono for GNU/Linux
 
-;; Github pull requests in Magit
-(require-package 'magit-gh-pulls)
-(require 'magit-gh-pulls)
-(add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls)
+;; ;; Github pull requests in Magit
+;; (require-package 'magit-gh-pulls)
+;; (require 'magit-gh-pulls)
+;; (add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls)
 
 ;; Ethereum Solidity
 (maybe-require-package 'solidity-mode)
@@ -78,6 +78,8 @@ When using Homebrew, install it using \"brew install trash\"."
 (when (require 'edit-server nil t)
   (setq edit-server-new-frame nil)
   (edit-server-start))
+
+;; (maybe-require-package 'rust-playground-mode)
 
 (provide 'init-local)
 ;;; init-local.el ends here
