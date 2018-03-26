@@ -81,5 +81,11 @@ When using Homebrew, install it using \"brew install trash\"."
 
 ;; (maybe-require-package 'rust-playground-mode)
 
+;; ruby C - get ruby-style.el from
+;; https://github.com/ruby/ruby/blob/trunk/misc/ruby-style.el
+(require 'ruby-style)
+(add-hook 'c-mode-hook 'ruby-style-c-mode)
+(add-hook 'c++-mode-hook 'ruby-style-c-mode)
+
 (provide 'init-local)
 ;;; init-local.el ends here
