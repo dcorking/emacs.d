@@ -87,9 +87,5 @@ When using Homebrew, install it using \"brew install trash\"."
 (add-hook 'c-mode-hook 'ruby-style-c-mode)
 (add-hook 'c++-mode-hook 'ruby-style-c-mode)
 
-;; Mode icons in the mode line and ibuffer
-;; http://melpa.milkbox.net/#/mode-icons
-(mode-icons-mode)
-
 (provide 'init-local)
 ;;; init-local.el ends here
