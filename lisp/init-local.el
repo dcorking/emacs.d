@@ -91,5 +91,10 @@ When using Homebrew, install it using \"brew install trash\"."
 (when (eq system-type 'darwin)
   (osx-trash-setup))
 
+;; an unobtrusive scrollbar widget
+;; https://twitter.com/_wilfredh/status/1050155492264296450
+(when (maybe-require-package 'yascroll)
+  (global-yascroll-bar-mode))
+
 (provide 'init-local)
 ;;; init-local.el ends here
