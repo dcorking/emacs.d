@@ -87,5 +87,9 @@ When using Homebrew, install it using \"brew install trash\"."
 (add-hook 'c-mode-hook 'ruby-style-c-mode)
 (add-hook 'c++-mode-hook 'ruby-style-c-mode)
 
+;; osx-trash package
+(when (eq system-type 'darwin)
+  (osx-trash-setup))
+
 (provide 'init-local)
 ;;; init-local.el ends here

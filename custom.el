@@ -12,7 +12,8 @@
      ((internal-border-width . 0)
       (vertical-scroll-bars)
       (font . "Menlo 14"))))
- '(delete-by-moving-to-trash nil)
+ '(delete-by-moving-to-trash t)
+ '(exec-path-from-shell-check-startup-files nil)
  '(fci-rule-color "#eee8d5")
  '(global-linum-mode t)
  '(gnutls-trustfiles
@@ -53,7 +54,7 @@
      (ruby-compilation-executable . "jruby"))))
  '(session-use-package t nil (session))
  '(timeclock-mode-line-display t)
- '(trash-directory "$HOME/.Trash")
+ '(trash-directory "~/.Trash")
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote
