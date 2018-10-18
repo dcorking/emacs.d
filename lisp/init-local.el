@@ -18,8 +18,8 @@
 (require 'opam-user-setup "~/.emacs.d/opam-user-setup.el")
 ;; ## end of OPAM user-setup addition for emacs / base ## keep this line
 
-;; TODO require packages utop and tuareg - or see above ^^
-;; TODO flycheck for tuareg mode
+;; TODO: require packages utop and tuareg - or see above ^^
+;; TODO: flycheck for tuareg mode
 
 ;;
 ;; terminal emulation enhancements
@@ -34,7 +34,7 @@
 ;; and get this:
 ;; Error (frameset): Wrong type argument: number-or-marker-p, nil
 
-;; TODO select Menlo font for Mac OS X and DejaVu Sans Mono for GNU/Linux
+;; TODO: select Menlo font for Mac OS X and DejaVu Sans Mono for GNU/Linux
 
 ;; ;; Github pull requests in Magit
 ;; (require-package 'magit-gh-pulls)
