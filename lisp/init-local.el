@@ -24,10 +24,11 @@
 ;;
 ;; terminal emulation enhancements
 ;;
-(require 'multi-term)
+;; FIXME: file not found multi-term.el
+;; (require 'multi-term)
 (setq multi-term-program "/bin/bash")
 
-;; broken
+;; FIXME:
 ;; (require 'elscreen)
 ;; (require 'elscreen-multi-term)
 ;; but even without require, packages seem to be available
@@ -42,8 +43,8 @@
 ;; (add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls)
 
 ;; Ethereum Solidity
-(maybe-require-package 'solidity-mode)
-(require 'solidity-mode)
+;; (maybe-require-package 'solidity-mode)
+;; (require 'solidity-mode)
 
 ;;JS
 (require-package 'prettier-js)
@@ -65,13 +66,19 @@
 
 (setq flycheck-display-errors-function #'flycheck-display-error-messages-unless-error-list)
 
-;;; https://www.emacswiki.org/emacs/SystemTrash#toc5
-(defun system-move-file-to-trash (file)
-  "Use \"trash\" to move FILE to the system trash.
-When using Homebrew, install it using \"brew install trash\"."
-  (call-process (executable-find "trash")
-                nil 0 nil
-                file))
+;; FIXME: symbol not defined osx-trash-setup
+;; ;;; https://www.emacswiki.org/emacs/SystemTrash#toc5
+;; (defun system-move-file-to-trash (file)
+;;   "Use \"trash\" to move FILE to the system trash.
+;; When using Homebrew, install it using \"brew install trash\"."
+;;   (call-process (executable-find "trash")
+;;                 nil 0 nil
+;;                 file))
+
+;; ;; osx-trash package
+;; (when (eq system-type 'darwin)
+;;   (osx-trash-setup))
+
 
 ;;; Edit with Emacs extenstion for Chrome browser
 ;;; chrome-extension://ljobjlafonikaiipfkggjbhkghgicgoh/fancy-settings/source/index.html
@@ -86,10 +93,6 @@ When using Homebrew, install it using \"brew install trash\"."
 (require 'ruby-style)
 (add-hook 'c-mode-hook 'ruby-style-c-mode)
 (add-hook 'c++-mode-hook 'ruby-style-c-mode)
-
-;; osx-trash package
-(when (eq system-type 'darwin)
-  (osx-trash-setup))
 
 ;; an unobtrusive scrollbar widget
 ;; https://twitter.com/_wilfredh/status/1050155492264296450
