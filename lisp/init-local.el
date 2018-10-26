@@ -99,5 +99,9 @@
 (when (maybe-require-package 'yascroll)
   (global-yascroll-bar-mode))
 
+;; toggle fill and unfill with purcell's unfill package
+;; http://endlessparentheses.com/fill-and-unfill-paragraphs-with-a-single-key.html
+(global-set-key [remap fill-paragraph] #'unfill-toggle)
+
 (provide 'init-local)
 ;;; init-local.el ends here
