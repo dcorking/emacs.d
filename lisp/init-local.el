@@ -108,7 +108,7 @@
     If optional prefix arg NUM is given, start numbering from that number
     instead of 1.
 
-*Warning:* In markdown mode, this *renumbers all the subsequent
+*Warning:* If you don't select a region, this may *renumber all the subsequent
  list items*, throughout the remainder of the document
 
 By AlexSchroeder, 2003
