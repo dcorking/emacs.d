@@ -124,5 +124,11 @@ https://www.emacswiki.org/emacs/RenumberList
         (replace-match (number-to-string num))
         (setq num (1+ num))))))
 
+;;;; Uncomment this if want to experiment with smartparens mode
+;;;;
+;; (when (maybe-require-package 'smartparens)
+;;   (remove-hook 'after-init-hook 'electric-pair-mode)
+;;   (add-hook 'after-init-hook 'smartparens-global-mode))
+
 (provide 'init-local)
 ;;; init-local.el ends here
