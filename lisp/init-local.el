@@ -7,6 +7,12 @@
 ;;; http://www.emacswiki.org/emacs/ruby-debug
 ;; (require 'ruby-debug)
 ;; (provide 'init-ruby-debug)
+;;
+;; ruby C - get ruby-style.el from
+;; https://github.com/ruby/ruby/blob/trunk/misc/ruby-style.el
+;; (require 'ruby-style)
+;; (add-hook 'c-mode-hook 'ruby-style-c-mode)
+;; (add-hook 'c++-mode-hook 'ruby-style-c-mode)
 
 ;;
 ;; Standard ML language
@@ -79,7 +85,6 @@
 ;; (when (eq system-type 'darwin)
 ;;   (osx-trash-setup))
 
-
 ;;; Edit with Emacs extenstion for Chrome browser
 ;;; chrome-extension://ljobjlafonikaiipfkggjbhkghgicgoh/fancy-settings/source/index.html
 (when (require 'edit-server nil t)
@@ -87,12 +92,6 @@
   (edit-server-start))
 
 ;; (maybe-require-package 'rust-playground-mode)
-
-;; ruby C - get ruby-style.el from
-;; https://github.com/ruby/ruby/blob/trunk/misc/ruby-style.el
-;; (require 'ruby-style)
-;; (add-hook 'c-mode-hook 'ruby-style-c-mode)
-;; (add-hook 'c++-mode-hook 'ruby-style-c-mode)
 
 ;; an unobtrusive scrollbar widget
 ;; https://twitter.com/_wilfredh/status/1050155492264296450
