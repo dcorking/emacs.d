@@ -90,9 +90,9 @@
 
 ;; ruby C - get ruby-style.el from
 ;; https://github.com/ruby/ruby/blob/trunk/misc/ruby-style.el
-(require 'ruby-style)
-(add-hook 'c-mode-hook 'ruby-style-c-mode)
-(add-hook 'c++-mode-hook 'ruby-style-c-mode)
+;; (require 'ruby-style)
+;; (add-hook 'c-mode-hook 'ruby-style-c-mode)
+;; (add-hook 'c++-mode-hook 'ruby-style-c-mode)
 
 ;; an unobtrusive scrollbar widget
 ;; https://twitter.com/_wilfredh/status/1050155492264296450
