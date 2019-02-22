@@ -116,5 +116,36 @@ https://www.emacswiki.org/emacs/RenumberList
 ;;   (remove-hook 'after-init-hook 'electric-pair-mode)
 ;;   (add-hook 'after-init-hook 'smartparens-global-mode))
 
+;; Copyright © 2013-2018, by Xah Lee, 2019 dcorking
+;; Authors: dcorking, Xah Lee ( http://xahlee.info/ )
+;; License: GPL v3
+(defun dcorking-url-encode ()
+  "Encode the markdown URL at cursor point.
+Work on region enclosed by parentheses text selection.
+
+Adapted from xah-html-url-linkify http://ergoemacs.org/emacs/wrap-url.html
+http://ergoemacs.org/emacs/wrap-url.html GPL v3
+"
+  (interactive)
+  (let ( $p1 $p2 $input $newStr )
+    (if (use-region-p)
+        (setq $p1 (region-beginning) $p2 (region-end))
+      (save-excursion
+        (let ($p0)
+          (setq $p0 (point))
+          ;; in my particular usecase the url is delimited by parens (because it is markdown
+          (skip-chars-backward "^\(")
+          (setq $p1 (point))
+          (goto-char $p0)
+          (skip-chars-forward "^\)")
+          (setq $p2 (point)))))
+    (setq $input (buffer-substring-no-properties $p1 $p2))
+    (setq $newStr
+          (if (string-match "^http" $input )
+              $input
+            (progn (file-relative-name (replace-regexp-in-string "^file:///" "/" $input t t)))))
+    (delete-region $p1 $p2)
+    (insert (url-encode-url $input) )))
+
 (provide 'init-local)
 ;;; init-local.el ends here
