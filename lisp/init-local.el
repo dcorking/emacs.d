@@ -121,7 +121,7 @@ https://www.emacswiki.org/emacs/RenumberList
 ;; License: GPL v3
 (defun dcorking-url-encode ()
   "Encode the markdown URL at cursor point.
-Work on region enclosed by parentheses text selection.
+Encode the text enclosed by parentheses, or the selected region.
 
 Adapted from xah-html-url-linkify http://ergoemacs.org/emacs/wrap-url.html
 http://ergoemacs.org/emacs/wrap-url.html GPL v3
@@ -146,6 +146,9 @@ http://ergoemacs.org/emacs/wrap-url.html GPL v3
             (progn (file-relative-name (replace-regexp-in-string "^file:///" "/" $input t t)))))
     (delete-region $p1 $p2)
     (insert (url-encode-url $input) )))
+
+;; define global key for new function and hope it doesn't clobber something else
+(global-set-key (kbd "C-c SPC") 'dcorking-url-encode)
 
 (provide 'init-local)
 ;;; init-local.el ends here
