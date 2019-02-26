@@ -150,5 +150,15 @@ http://ergoemacs.org/emacs/wrap-url.html GPL v3
 ;; define global key for new function and hope it doesn't clobber something else
 (global-set-key (kbd "C-c SPC") 'dcorking-url-encode)
 
+;; macro dcorking-mdimage yanks the paste buffer into a new markdown image tag,
+;; appends ".png" then uses dcorking-url-encode to fix illegal
+;; characters
+(fset 'dcorking-mdimage
+      "![](images/\C-y.png\C-c ")
+
+;; macro dcorking-rm-jekyll-h1 converts the Jekyll page title to a markdown level 1 heading
+(fset 'dcorking-rm-jekyll-h1
+      [?\M-< ?\C-  ?\C-s ?: ?\C-s ?# backspace return ?# down ?\C-w])
+
 (provide 'init-local)
 ;;; init-local.el ends here
