@@ -155,6 +155,7 @@ http://ergoemacs.org/emacs/wrap-url.html GPL v3
 ;; characters
 (fset 'dcorking-mdimage
       "![](images/\C-y.png\C-c ")
+(global-set-key (kbd "C-x C-k 1") 'dcorking-mdimage)
 
 ;; macro dcorking-rm-jekyll-h1 converts the Jekyll page title to a markdown level 1 heading
 (fset 'dcorking-rm-jekyll-h1
