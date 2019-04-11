@@ -52,3 +52,6 @@ site-lisp/package/
 /magithub
 /rust-playground
 ac-comphist.dat
+.cache/
+/forge-database.sqlite
+/transient

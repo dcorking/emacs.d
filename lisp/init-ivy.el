@@ -1,4 +1,7 @@
-;;; -*- lexical-binding: t -*-
+;;; init-ivy.el --- Use ivy for minibuffer completion and more -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
 (when (maybe-require-package 'ivy)
   (add-hook 'after-init-hook 'ivy-mode)
   (after-load 'ivy
@@ -8,6 +11,7 @@
                   projectile-completion-system 'ivy
                   ivy-magic-tilde nil
                   ivy-dynamic-exhibit-delay-ms 150
+                  ivy-use-selectable-prompt t
                   ivy-initial-inputs-alist
                   '((Man-completion-table . "^")
                     (woman . "^")))
@@ -19,6 +23,8 @@
 
     (define-key ivy-minibuffer-map (kbd "<up>") #'ivy-previous-line-or-history)
 
+    (define-key ivy-occur-mode-map (kbd "C-c C-q") #'ivy-wgrep-change-to-wgrep-mode)
+
     (when (maybe-require-package 'diminish)
       (diminish 'ivy-mode)))
 
@@ -28,9 +34,6 @@
     (require-package 'flx)
     (setq-default ivy-re-builders-alist
                   '((t . ivy--regex-fuzzy)))))
-
-(when (maybe-require-package 'ivy-historian)
-  (add-hook 'after-init-hook 'ivy-historian-mode))
 
 (when (maybe-require-package 'counsel)
   (setq-default counsel-mode-override-describe-bindings t)
@@ -81,3 +84,4 @@ instead."
 
 
 (provide 'init-ivy)
+;;; init-ivy.el ends here
