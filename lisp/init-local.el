@@ -55,7 +55,9 @@
 ;;JS
 (require-package 'prettier-js)
 (require 'prettier-js)
-(dolist (hook '(js2-mode-hook js-mode-hook json-mode-hook))
+;; (dolist (hook '(js2-mode-hook js-mode-hook json-mode-hook))
+;;   (add-hook hook 'prettier-js-mode))
+(dolist (hook '(js2-mode-hook js-mode-hook))
   (add-hook hook 'prettier-js-mode))
 
 ;; JSX
