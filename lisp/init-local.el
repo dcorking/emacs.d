@@ -112,6 +112,17 @@ https://www.emacswiki.org/emacs/RenumberList
         (replace-match (number-to-string num))
         (setq num (1+ num))))))
 
+;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Documentation       ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+;; devdocs-lookup package
+;; https://github.com/skeeto/devdocs-lookup
+(push "~/.emacs.d/site-lisp/devdocs-lookup" load-path)
+(require 'devdocs-lookup)
+;; TODO choose a key binding or bindings for devdocs-lookup
+
 ;;;; Uncomment this if want to experiment with smartparens mode
 ;;;;
 ;; (when (maybe-require-package 'smartparens)
