@@ -17,7 +17,7 @@
  '(editorconfig-mode t)
  '(exec-path-from-shell-check-startup-files nil)
  '(fci-rule-color "#424242")
- '(global-linum-mode t)
+ '(global-linum-mode nil)
  '(global-yascroll-bar-mode t)
  '(gnutls-trustfiles
    (quote
