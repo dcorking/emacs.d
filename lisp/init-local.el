@@ -115,13 +115,14 @@ https://www.emacswiki.org/emacs/RenumberList
 ;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Documentation       ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;
-
-
-;; devdocs-lookup package
-;; https://github.com/skeeto/devdocs-lookup
-(push "~/.emacs.d/site-lisp/devdocs-lookup" load-path)
-(require 'devdocs-lookup)
+(defun dcorking-configure-devdocs ()
+  "devdocs-lookup package
+  https://github.com/skeeto/devdocs-lookup"
+  (push "~/.emacs.d/site-lisp/devdocs-lookup" load-path)
+  (require 'devdocs-lookup))
 ;; TODO choose a key binding or bindings for devdocs-lookup
+(if (file-exists-p "~/.emacs.d/site-lisp/devdocs-lookup/devdocs-lookup.el")
+    (dcorking-configure-devdocs))
 
 ;;;; Uncomment this if want to experiment with smartparens mode
 ;;;;
