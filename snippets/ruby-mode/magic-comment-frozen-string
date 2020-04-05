@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: mfs
+# key: mfs
+# --
+# frozen_string_literal: true
+
+class 
