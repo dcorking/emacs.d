@@ -130,5 +130,11 @@ https://www.emacswiki.org/emacs/RenumberList
 ;;   (remove-hook 'after-init-hook 'electric-pair-mode)
 ;;   (add-hook 'after-init-hook 'smartparens-global-mode))
 
+;;; Server for GhostText browser extension - for editing browser text
+;;; inputs https://github.com/GhostText/GhostText
+;;; Opens a local port (default 4001)
+(when (maybe-require-package 'atomic-chrome)
+  (atomic-chrome-start-server))
+
 (provide 'init-local)
 ;;; init-local.el ends here
