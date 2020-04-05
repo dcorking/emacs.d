@@ -126,6 +126,9 @@ https://www.emacswiki.org/emacs/RenumberList
 (if (file-exists-p "~/.emacs.d/site-lisp/devdocs-lookup/devdocs-lookup.el")
     (dcorking-configure-devdocs))
 
+;;; quick hack to get mmm info mode
+(push "/Users/dcorking/.emacs.d/elpa/mmm-mode-20150828.1716" Info-directory-list)
+
 ;;;; Uncomment this if want to experiment with smartparens mode
 ;;;;
 ;; (when (maybe-require-package 'smartparens)
