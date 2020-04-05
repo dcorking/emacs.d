@@ -52,13 +52,15 @@
 ;; (maybe-require-package 'solidity-mode)
 ;; (require 'solidity-mode)
 
-;;JS
+;;; JS
 (require-package 'prettier-js)
 (require 'prettier-js)
 ;; (dolist (hook '(js2-mode-hook js-mode-hook json-mode-hook))
 ;;   (add-hook hook 'prettier-js-mode))
 (dolist (hook '(js2-mode-hook js-mode-hook))
   (add-hook hook 'prettier-js-mode))
+;; MMM mode
+(mmm-add-mode-ext-class nil "\.ejs\\'" 'ejs)
 
 ;; JSX
 (require-package 'rjsx-mode)
