@@ -41,7 +41,12 @@
 ;; and get this:
 ;; Error (frameset): Wrong type argument: number-or-marker-p, nil
 
-;; TODO: select Menlo font for Mac OS X and DejaVu Sans Mono for GNU/Linux
+;; select Menlo font for Mac OS X and DejaVu Sans Mono for GNU/Linux
+;; (set-frame-font "Menlo 14")
+(cond
+ ((x-list-fonts "Menlo 14") (set-frame-font "Menlo 14"))
+ ((x-list-fonts "DejaVu Sans Mono 14") (set-frame-font "DejaVu Sans Mono 14"))
+ ) ;;; TODO: make font size dependent on point size / screen size + resolution
 
 ;; ;; Github pull requests in Magit
 ;; (require-package 'magit-gh-pulls)

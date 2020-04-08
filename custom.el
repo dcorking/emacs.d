@@ -10,8 +10,7 @@
  '(default-frame-alist
     (quote
      ((internal-border-width . 0)
-      (vertical-scroll-bars)
-      (font . "Menlo 14"))))
+      (vertical-scroll-bars))))
  '(default-input-method "rfc1345")
  '(delete-by-moving-to-trash t)
  '(editorconfig-mode t)
