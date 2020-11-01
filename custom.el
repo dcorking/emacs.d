@@ -57,6 +57,7 @@
      (ruby-compilation-executable . "ruby1.9")
      (ruby-compilation-executable . "rbx")
      (ruby-compilation-executable . "jruby"))))
+ '(select-enable-primary t nil nil "This allows M-y to yank from a terminal mouse selection")
  '(session-use-package t nil (session))
  '(timeclock-mode-line-display t)
  '(trash-directory "~/.Trash")
