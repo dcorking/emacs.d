@@ -101,10 +101,11 @@ Call a second time to restore the original window configuration."
 (global-set-key (kbd "C-c <down>") 'sanityinc/toggle-current-window-dedication)
 
 
-
-;; (unless (memq window-system '(nt w32))
-;;   (windmove-default-keybindings 'control))
-(windmove-default-keybindings)
+(unless (memq window-system '(nt w32))
+  (require-package 'windswap)
+  (add-hook 'after-init-hook (apply-partially 'windmove-default-keybindings 'control))
+  (add-hook 'after-init-hook (apply-partially 'windswap-default-keybindings 'shift 'control)))
+
 
 (provide 'init-windows)
 ;;; init-windows.el ends here
