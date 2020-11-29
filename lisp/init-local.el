@@ -1,4 +1,10 @@
 ;;
+;; Prerequisites:
+;;
+;; For flycheck in yaml-mode
+;; $ npm install -g js-yaml
+
+;;
 ;; Ruby language
 ;;
 ;; rails reloaded plugin
@@ -43,9 +49,12 @@
 
 ;; search for my favourite fonts, setting the first one as default
 (setq-local default-font
-            (seq-find #'x-list-fonts ["DejaVu Sans Mono 18" "Menlo 18"]))
+            (seq-find #'x-list-fonts ["DejaVu Sans Mono 12" "Menlo 12"]))
+(add-to-list 'initial-frame-alist
+             (cons `font default-font))
 (add-to-list 'default-frame-alist
              (cons `font default-font))
+(set-frame-font default-font nil t)
 ;;; TODO: make font size dependent on point size / screen size + resolution
 
 ;; ;; Github pull requests in Magit
