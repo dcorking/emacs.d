@@ -41,21 +41,17 @@
 ;; and get this:
 ;; Error (frameset): Wrong type argument: number-or-marker-p, nil
 
-;; select Menlo font for Mac OS X and DejaVu Sans Mono for GNU/Linux
-;; (set-frame-font "Menlo 14")
-(cond
- ((x-list-fonts "Menlo 14") (set-frame-font "Menlo 14"))
- ((x-list-fonts "DejaVu Sans Mono 14") (set-frame-font "DejaVu Sans Mono 14"))
- ) ;;; TODO: make font size dependent on point size / screen size + resolution
+;; search for my favourite fonts, setting the first one as default
+(setq-local default-font
+            (seq-find #'x-list-fonts ["DejaVu Sans Mono 18" "Menlo 18"]))
+(add-to-list 'default-frame-alist
+             (cons `font default-font))
+;;; TODO: make font size dependent on point size / screen size + resolution
 
 ;; ;; Github pull requests in Magit
 ;; (require-package 'magit-gh-pulls)
 ;; (require 'magit-gh-pulls)
 ;; (add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls)
-
-;; Ethereum Solidity
-;; (maybe-require-package 'solidity-mode)
-;; (require 'solidity-mode)
 
 ;;; JS
 (require-package 'prettier-js)
