@@ -145,11 +145,26 @@ https://www.emacswiki.org/emacs/RenumberList
 ;;   (remove-hook 'after-init-hook 'electric-pair-mode)
 ;;   (add-hook 'after-init-hook 'smartparens-global-mode))
 
-;;; Server for GhostText browser extension - for editing browser text
-;;; inputs https://github.com/GhostText/GhostText
-;;; Opens a local port (default 4001)
+;; Server for GhostText browser extension - for editing browser text
+;; inputs https://github.com/GhostText/GhostText
+;; Opens a local port (default 4001)
 (when (maybe-require-package 'atomic-chrome)
   (atomic-chrome-start-server))
+
+;; When I want to back out of a mistaken but unsaved global search and replace
+;; by Drew https://emacs.stackexchange.com/questions/24459/revert-all-open-buffers-and-ignore-errors/24464#24464
+(defun revert-all-no-confirm ()
+  "Revert all file buffers, without confirmation.
+Buffers visiting files that no longer exist are ignored.
+Files that are not readable (including do not exist) are ignored.
+Other errors while reverting a buffer are reported only as messages."
+  (interactive)
+  (let (file)
+    (dolist (buf  (buffer-list))
+      (setq file  (buffer-file-name buf))
+      (when (and file  (file-readable-p file))
+        (with-current-buffer buf
+          (with-demoted-errors "Error: %S" (revert-buffer t t)))))))
 
 (provide 'init-local)
 ;;; init-local.el ends here
