@@ -47,14 +47,12 @@
 ;; and get this:
 ;; Error (frameset): Wrong type argument: number-or-marker-p, nil
 
-;; search for my favourite fonts, setting the first one as default
-(setq-local default-font
-            (seq-find #'x-list-fonts ["DejaVu Sans Mono 12" "Menlo 12"]))
-(add-to-list 'initial-frame-alist
-             (cons `font default-font))
-(add-to-list 'default-frame-alist
-             (cons `font default-font))
-(set-frame-font default-font nil t)
+;; works hand-in-hand with setting custom alternatives for 'Monospace'
+;; in face-font-family-alternatives`
+(let ((default-font "Monospace 12"))
+  (add-to-list 'initial-frame-alist (cons `font default-font))
+  (add-to-list 'default-frame-alist (cons `font default-font))
+  (set-frame-font default-font nil t))
 ;;; TODO: make font size dependent on point size / screen size + resolution
 
 ;; ;; Github pull requests in Magit
