@@ -24,7 +24,7 @@
  '(global-linum-mode nil)
  '(global-yascroll-bar-mode t)
  '(gnutls-trustfiles
-   '("/etc/ssl/certs/ca-certificates.crt" "/etc/pki/tls/certs/ca-bundle.crt" "/etc/ssl/ca-bundle.pem" "/usr/ssl/certs/ca-bundle.crt" "/usr/local/share/certs/ca-root-nss.crt" "/Users/dcorking/SystemKeychainCertificates.pem"))
+   '("/etc/ssl/certs/ca-certificates.crt" "/etc/pki/tls/certs/ca-bundle.crt" "/etc/ssl/ca-bundle.pem" "/usr/ssl/certs/ca-bundle.crt" "/usr/local/share/certs/ca-root-nss.crt" "/etc/ssl/cert.pem"))
  '(indent-tabs-mode nil)
  '(js2-include-node-externs t)
  '(js2-mode-show-parse-errors nil)
