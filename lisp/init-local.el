@@ -164,5 +164,8 @@ Other errors while reverting a buffer are reported only as messages."
         (with-current-buffer buf
           (with-demoted-errors "Error: %S" (revert-buffer t t)))))))
 
+;; enable scrolling 'C-x <' that is disabled by default
+(put 'scroll-left 'disabled nil)
+
 (provide 'init-local)
 ;;; init-local.el ends here
