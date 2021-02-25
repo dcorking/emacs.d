@@ -20,6 +20,9 @@
 ;; (add-hook 'c-mode-hook 'ruby-style-c-mode)
 ;; (add-hook 'c++-mode-hook 'ruby-style-c-mode)
 
+(when (maybe-require-package 'rubocop)
+  (add-hook 'ruby-mode-hook #'rubocop-mode))
+
 ;;
 ;; Standard ML language
 ;;
