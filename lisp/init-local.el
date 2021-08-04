@@ -24,6 +24,11 @@
   (add-hook 'ruby-mode-hook #'rubocop-mode))
 
 ;;
+;; snippets (like textmate, and all the other editors that copied textmate)
+;;
+(yas-global-mode 1)
+
+;;
 ;; Standard ML language
 ;;
 (require-package 'sml-mode)
