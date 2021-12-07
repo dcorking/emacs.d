@@ -19,7 +19,11 @@
 ;; (require 'ruby-style)
 ;; (add-hook 'c-mode-hook 'ruby-style-c-mode)
 ;; (add-hook 'c++-mode-hook 'ruby-style-c-mode)
-
+;;
+;; SLIM html templates
+(when (maybe-require-package 'slim-mode)
+  (require 'slim-mode))
+;; rubocop lint
 (when (maybe-require-package 'rubocop)
   (add-hook 'ruby-mode-hook #'rubocop-mode))
 
