@@ -33,6 +33,12 @@
 (yas-global-mode 1)
 
 ;;
+;; .env , .env.local etc
+;;
+(when (maybe-require-package 'dotenv-mode)
+  (add-to-list 'auto-mode-alist '("\\.env\\..*\\'" . dotenv-mode)))
+
+;;
 ;; Standard ML language
 ;;
 (require-package 'sml-mode)
@@ -61,11 +67,11 @@
 
 ;; works hand-in-hand with setting custom alternatives for 'Monospace'
 ;; in face-font-family-alternatives`
-(let ((default-font "Monospace 12"))
+(let ((default-font "Monospace 19"))
   (add-to-list 'initial-frame-alist (cons `font default-font))
   (add-to-list 'default-frame-alist (cons `font default-font))
   (set-frame-font default-font nil t))
-;;; TODO: make font size dependent on point size / screen size + resolution
+;;; TODO: make font size dependent on point size / screen size + resolution, such as `display-monitor-attributes-list`
 
 ;; ;; Github pull requests in Magit
 ;; (require-package 'magit-gh-pulls)
