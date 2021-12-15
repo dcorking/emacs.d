@@ -30,7 +30,8 @@
 ;;
 ;; snippets (like textmate, and all the other editors that copied textmate)
 ;;
-(yas-global-mode 1)
+(when (maybe-require-package 'yasnippet-snippets)
+  (yas-global-mode 1))
 
 ;;
 ;; .env , .env.local etc
