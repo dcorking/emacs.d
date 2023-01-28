@@ -113,8 +113,9 @@
 
 ;; an unobtrusive scrollbar widget
 ;; https://twitter.com/_wilfredh/status/1050155492264296450
-(when (maybe-require-package 'yascroll)
-  (global-yascroll-bar-mode))
+;; but is it causing excessive CPU usage on macOS ??
+;; (when (maybe-require-package 'yascroll)
+;;   (global-yascroll-bar-mode))
 
 ;; toggle fill and unfill with purcell's unfill package
 ;; http://endlessparentheses.com/fill-and-unfill-paragraphs-with-a-single-key.html
