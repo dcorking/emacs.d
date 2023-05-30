@@ -8,7 +8,7 @@
 ;; Ruby language
 ;;
 ;; rails reloaded plugin
-(push "~/.emacs.d/site-lisp/rails-reloaded" load-path)
+;; (push "~/.emacs.d/site-lisp/rails-reloaded" load-path)
 ;; (require 'rails-autoload)
 ;;; http://www.emacswiki.org/emacs/ruby-debug
 ;; (require 'ruby-debug)
@@ -82,6 +82,7 @@
 ;;; JS
 (require-package 'prettier-js)
 (require 'prettier-js)
+;; ;; prettier-js in json-mode
 ;; (dolist (hook '(js2-mode-hook js-mode-hook json-mode-hook))
 ;;   (add-hook hook 'prettier-js-mode))
 (dolist (hook '(js2-mode-hook js-mode-hook))
@@ -117,9 +118,9 @@
 ;; (when (maybe-require-package 'yascroll)
 ;;   (global-yascroll-bar-mode))
 
-;; toggle fill and unfill with purcell's unfill package
-;; http://endlessparentheses.com/fill-and-unfill-paragraphs-with-a-single-key.html
-(global-set-key [remap fill-paragraph] #'unfill-toggle)
+;; ;; toggle fill and unfill with purcell's unfill package
+;; ;; http://endlessparentheses.com/fill-and-unfill-paragraphs-with-a-single-key.html
+;; (global-set-key [remap fill-paragraph] #'unfill-toggle)
 
 (defun renumber-list (start end &optional num)
   "Renumber the list items in the current START..END region.
@@ -142,20 +143,20 @@ https://www.emacswiki.org/emacs/RenumberList
         (replace-match (number-to-string num))
         (setq num (1+ num))))))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Documentation       ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;
-(defun dcorking-configure-devdocs ()
-  "devdocs-lookup package
-  https://github.com/skeeto/devdocs-lookup"
-  (push "~/.emacs.d/site-lisp/devdocs-lookup" load-path)
-  (require 'devdocs-lookup))
-;; TODO choose a key binding or bindings for devdocs-lookup
-(if (file-exists-p "~/.emacs.d/site-lisp/devdocs-lookup/devdocs-lookup.el")
-    (dcorking-configure-devdocs))
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;; Documentation       ;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;
+;; (defun dcorking-configure-devdocs ()
+;;   "devdocs-lookup package
+;;   https://github.com/skeeto/devdocs-lookup"
+;;   (push "~/.emacs.d/site-lisp/devdocs-lookup" load-path)
+;;   (require 'devdocs-lookup))
+;; ;; TODO choose a key binding or bindings for devdocs-lookup
+;; (if (file-exists-p "~/.emacs.d/site-lisp/devdocs-lookup/devdocs-lookup.el")
+;;     (dcorking-configure-devdocs))
 
-;;; quick hack to get mmm info mode
-(push "/Users/dcorking/.emacs.d/elpa/mmm-mode-20150828.1716" Info-directory-list)
+;; ;;; quick hack to get mmm info mode
+;; (push "/Users/dcorking/.emacs.d/elpa/mmm-mode-20150828.1716" Info-directory-list)
 
 ;;;; Uncomment this if want to experiment with smartparens mode
 ;;;;
@@ -163,11 +164,11 @@ https://www.emacswiki.org/emacs/RenumberList
 ;;   (remove-hook 'after-init-hook 'electric-pair-mode)
 ;;   (add-hook 'after-init-hook 'smartparens-global-mode))
 
-;; Server for GhostText browser extension - for editing browser text
-;; inputs https://github.com/GhostText/GhostText
-;; Opens a local port (default 4001)
-(when (maybe-require-package 'atomic-chrome)
-  (atomic-chrome-start-server))
+;; ;; Server for GhostText browser extension - for editing browser text
+;; ;; inputs https://github.com/GhostText/GhostText
+;; ;; Opens a local port (default 4001)
+;; (when (maybe-require-package 'atomic-chrome)
+;;   (atomic-chrome-start-server))
 
 ;; When I want to back out of a mistaken but unsaved global search and replace
 ;; by Drew https://emacs.stackexchange.com/questions/24459/revert-all-open-buffers-and-ignore-errors/24464#24464
