@@ -19,9 +19,10 @@
   (setq-default corfu-quit-no-match 'separator)
   (add-hook 'after-init-hook 'global-corfu-mode)
 
-  (when (maybe-require-package 'corfu-doc)
-    (with-eval-after-load 'corfu
-      (add-hook 'corfu-mode-hook #'corfu-doc-mode)))
+  ;; skip corfu-doc as obsolete, until deleted upstream
+  ;; (when (maybe-require-package 'corfu-doc)
+  ;;   (with-eval-after-load 'corfu
+  ;;     (add-hook 'corfu-mode-hook #'corfu-doc-mode)))
 
   ;; TODO: https://github.com/jdtsmith/kind-icon
   )
