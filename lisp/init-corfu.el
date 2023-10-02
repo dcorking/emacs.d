@@ -16,13 +16,20 @@
 
 (when (maybe-require-package 'corfu)
   (setq-default corfu-auto t)
+  (with-eval-after-load 'eshell
+    (add-hook 'eshell-mode-hook (lambda () (setq-local corfu-auto nil))))
   (setq-default corfu-quit-no-match 'separator)
   (add-hook 'after-init-hook 'global-corfu-mode)
 
-  ;; skip corfu-doc as obsolete, until deleted upstream
-  ;; (when (maybe-require-package 'corfu-doc)
-  ;;   (with-eval-after-load 'corfu
-  ;;     (add-hook 'corfu-mode-hook #'corfu-doc-mode)))
+
+
+  (with-eval-after-load 'corfu
+    (corfu-popupinfo-mode))
+
+  ;; Make Corfu also work in terminals, without disturbing usual behaviour in GUI
+  (when (maybe-require-package 'corfu-terminal)
+    (with-eval-after-load 'corfu
+      (corfu-terminal-mode)))
 
   ;; TODO: https://github.com/jdtsmith/kind-icon
   )
