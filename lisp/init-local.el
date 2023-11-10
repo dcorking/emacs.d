@@ -26,6 +26,8 @@
 ;; rubocop lint
 (when (maybe-require-package 'rubocop)
   (add-hook 'ruby-mode-hook #'rubocop-mode))
+;; default keybindings for projectile-rails 'C-c r' https://github.com/asok/projectile-rails#interactive-commands
+(define-key projectile-rails-mode-map (kbd "C-c r") 'projectile-rails-command-map)
 
 ;;
 ;; snippets (like textmate, and all the other editors that copied textmate)
@@ -190,3 +192,7 @@ Other errors while reverting a buffer are reported only as messages."
 
 (provide 'init-local)
 ;;; init-local.el ends here
+
+;; Local Variables:
+;; fill-column: 130
+;; End:
