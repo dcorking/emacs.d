@@ -8,7 +8,7 @@
  '(ansi-color-names-vector
    (vector "#000000" "#d54e53" "#b9ca4a" "#e7c547" "#7aa6da" "#c397d8" "#70c0b1" "#eaeaea"))
  '(beacon-color "#d54e53")
- '(browse-url-browser-function 'browse-url-firefox)
+ '(browse-url-browser-function 'browse-url-default-browser)
  '(browse-url-firefox-arguments '("--private-window"))
  '(css-indent-offset 2)
  '(custom-enabled-themes '(sanityinc-tomorrow-bright))
