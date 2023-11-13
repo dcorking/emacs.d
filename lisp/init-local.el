@@ -5,7 +5,7 @@
 ;; $ npm install -g js-yaml
 
 ;;
-;; Ruby language
+;; Ruby and Rails
 ;;
 ;; rails reloaded plugin
 ;; (push "~/.emacs.d/site-lisp/rails-reloaded" load-path)
@@ -27,7 +27,8 @@
 (when (maybe-require-package 'rubocop)
   (add-hook 'ruby-mode-hook #'rubocop-mode))
 ;; default keybindings for projectile-rails 'C-c r' https://github.com/asok/projectile-rails#interactive-commands
-(define-key projectile-rails-mode-map (kbd "C-c r") 'projectile-rails-command-map)
+(when (maybe-require-package 'projectile-rails)
+  (eval-after-load "projectile-rails" (lambda () (define-key projectile-rails-mode-map (kbd "C-c r") 'projectile-rails-command-map))))
 
 ;;
 ;; snippets (like textmate, and all the other editors that copied textmate)
