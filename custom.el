@@ -10,6 +10,7 @@
  '(beacon-color "#d54e53")
  '(browse-url-browser-function 'browse-url-default-browser)
  '(browse-url-firefox-arguments '("--private-window"))
+ '(column-number-mode t)
  '(css-indent-offset 2)
  '(custom-enabled-themes '(sanityinc-tomorrow-bright))
  '(custom-safe-themes
@@ -39,6 +40,7 @@
  '(magit-fetch-arguments '("--prune"))
  '(magit-log-arguments '("--graph" "--color" "--decorate" "-n512"))
  '(markdown-command "pandoc --from gfm")
+ '(menu-bar-mode nil)
  '(nsm-save-host-names t)
  '(package-selected-packages
    '(rjsx-mode sml-mode yasnippet-snippets rubocop slim-mode envrc uptimes shfmt dotenv-mode htmlize gnuplot sudo-edit lua-mode flycheck-ledger ledger-mode origami regex-tool info-colors flycheck-clojure cider elein cljsbuild-mode clojure-mode cask-mode flycheck-relint cl-libify package-lint-flymake highlight-quoted macrostep aggressive-indent immortal-scratch auto-compile ipretty elisp-slime-nav paredit nginx-mode nixpkgs-fmt nix-mode terraform-mode docker-compose-mode dockerfile-mode docker yaml-mode flycheck-rust rust-mode flycheck-nim nim-mode j-mode dune-format dune tuareg sqlformat projectile-rails yard-mode bundler yari robe ruby-compilation inf-ruby rspec-mode ruby-hash-syntax psci psc-ide purescript-mode elm-test-runner elm-mode dhall-mode haskell-mode reformatter toml-mode pip-requirements restclient httprepl haml-mode css-eldoc skewer-less sass-mode rainbow-mode tagedit org-pomodoro writeroom-mode org-cliplink smarty-mode php-mode add-node-modules-path skewer-mode js-comint coffee-mode prettier-js typescript-mode js2-mode json-mode erlang csv-mode markdown-mode textile-mode crontab-mode alert ibuffer-projectile projectile flymake-actionlint github-review forge github-clone bug-reference-github yagist git-commit magit-todos magit git-link git-timemachine git-modes git-blamed vc-darcs diff-hl whitespace-cleanup-mode which-key highlight-escape-sequences whole-line-or-region move-dup page-break-lines multiple-cursors avy browse-kill-ring symbol-overlay rainbow-delimiters mode-line-bell vlf list-unicode-display unfill mmm-mode session windswap switch-window corfu orderless marginalia consult-flycheck embark-consult consult embark vertico consult-eglot eglot flymake-flycheck flymake ibuffer-vc wgrep anzu disable-mouse default-text-scale dimmer color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized command-log-mode scratch diminish exec-path-from-shell gnu-elpa-keyring-update fullframe seq osx-location dash-at-point slime nixos-options nix-buffer nix-sandbox grab-mac-link xref-js2 beacon affe rg ns-auto-titlebar atomic-chrome yascroll corfu-doc slime-company flycheck-package company-nixos-options company-terraform racer merlin-eldoc merlin-company merlin flycheck-elm dante company-anaconda anaconda-mode company-php browse-at-remote company-quickhelp company flycheck-color-mode-line flycheck vue-mode daemons cl-lib-highlight gitconfig-mode gitignore-mode goto-line-preview ivy-xref swiper counsel ivy-rich ivy smex minitest devdocs-lookup ripgrep vterm package-lint dsvn hippie-expand-slime paredit-everywhere goto-gem hindent intero cmd-to-echo darcsum guide-key expand-region deadgrep wanderlust racket-mode markdown-preview-mode bug-hunter web-mode js2-refactor js-doc graphql-mode editorconfig editorconfig-generate sqlup-mode ivy-historian rudel indium ruby-mode git-messenger flycheck-soar projectile-ripgrep ag smartparens solidity-mode nlinum company-solidity osx-trash handlebars-mode string-inflection asy-mode web-beautify rust-playground multi-term tidy project-local-variables undo-tree org-fstree github-issues dynamic-spaces edit-server pug-mode sql-indent scss-mode less-css-mode csv-nav))
@@ -64,7 +66,9 @@
      (ruby-compilation-executable . "jruby")))
  '(select-enable-primary t nil nil "This allows M-y to yank from a terminal mouse selection")
  '(session-use-package t nil (session))
+ '(show-paren-mode t)
  '(timeclock-mode-line-display t)
+ '(tool-bar-mode nil)
  '(uptimes-auto-save nil)
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
