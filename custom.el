@@ -40,6 +40,7 @@
  '(magit-fetch-arguments '("--prune"))
  '(magit-log-arguments '("--graph" "--color" "--decorate" "-n512"))
  '(markdown-command "pandoc --from gfm")
+ '(markdown-fontify-code-blocks-natively t)
  '(menu-bar-mode t)
  '(nsm-save-host-names t)
  '(package-selected-packages
