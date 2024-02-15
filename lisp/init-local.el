@@ -100,6 +100,9 @@
 (autoload 'rjsx-mode "rjsx-mode" "Real JSX mode" t)
 (add-hook 'rjsx-mode-hook 'prettier-js-mode)
 
+;; PostCSS
+(add-to-list 'auto-mode-alist '("\\.pcss\\'" . sass-mode))
+
 ;; flycheck
 ;; Override default flycheck triggers
 (setq flycheck-check-syntax-automatically '(save idle-change new-line mode-enabled)
