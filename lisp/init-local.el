@@ -101,7 +101,7 @@
 (add-hook 'rjsx-mode-hook 'prettier-js-mode)
 
 ;; PostCSS
-(add-to-list 'auto-mode-alist '("\\.pcss\\'" . sass-mode))
+(add-to-list 'auto-mode-alist '("\\.pcss\\'" . css-mode))
 
 ;; flycheck
 ;; Override default flycheck triggers
