@@ -37,6 +37,7 @@
  '(js2-include-node-externs t)
  '(js2-mode-show-parse-errors nil)
  '(js2-mode-show-strict-warnings nil)
+ '(js2-strict-missing-semi-warning nil)
  '(magit-fetch-arguments '("--prune"))
  '(magit-log-arguments '("--graph" "--color" "--decorate" "-n512"))
  '(markdown-command "pandoc --from gfm")
