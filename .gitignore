@@ -61,3 +61,5 @@ ac-comphist.dat
 /eln-cache/
 /projects
 /request/curl-cookie-jar
+/forge-*.sqlite
+/projectile.cache
