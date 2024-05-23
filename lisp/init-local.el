@@ -194,6 +194,10 @@ Other errors while reverting a buffer are reported only as messages."
 ;; enable scrolling 'C-x <' that is disabled by default
 (put 'scroll-left 'disabled nil)
 
+;; personal global keybindings
+(global-set-key (kbd "C-c b") 'bury-buffer)
+(global-set-key (kbd "C-c q") 'quit-window)
+
 (provide 'init-local)
 ;;; init-local.el ends here
 
