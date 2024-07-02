@@ -40,7 +40,8 @@
 ;; .env , .env.local etc
 ;;
 (when (maybe-require-package 'dotenv-mode)
-  (add-to-list 'auto-mode-alist '("\\.env\\..*\\'" . dotenv-mode)))
+  (add-to-list 'auto-mode-alist '("\\.env\\..*\\'" . dotenv-mode))
+  (add-to-list 'auto-mode-alist '("\\.env\\.local\\.sample\\'" . dotenv-mode)))
 
 ;;
 ;; Standard ML language
