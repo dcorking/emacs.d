@@ -21,7 +21,7 @@
  '(editorconfig-mode t)
  '(exec-path-from-shell-check-startup-files nil)
  '(face-font-family-alternatives
-   '(("Monospace" "DejaVu Sans Mono" "Menlo" "courier" "fixed")
+   '(("Monospace" "DejaVu Sans Mono" "Menlo" "fixed")
      ("Monospace Serif" "Courier 10 Pitch" "Consolas" "Courier Std" "FreeMono" "Nimbus Mono L" "courier" "fixed")
      ("courier" "CMU Typewriter Text" "fixed")
      ("Sans Serif" "helv" "helvetica" "arial" "fixed")
