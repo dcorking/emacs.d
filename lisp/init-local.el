@@ -195,9 +195,15 @@ Other errors while reverting a buffer are reported only as messages."
 ;; enable scrolling 'C-x <' that is disabled by default
 (put 'scroll-left 'disabled nil)
 
+(defalias 'restart-puma
+  (kmacro "C-c p d t m p / <return> T <return> q"))
+
 ;; personal global keybindings
 (global-set-key (kbd "C-c b") 'bury-buffer)
+(global-set-key (kbd "C-c l") 'magit-blame-addition)
 (global-set-key (kbd "C-c q") 'quit-window)
+(global-set-key (kbd "C-c t") 'restart-puma) ;; overrides (eat-other-window)
+(global-set-key (kbd "C-c u") 'revert-buffer) ;; overrides (move-dup-duplicate-up)
 
 (provide 'init-local)
 ;;; init-local.el ends here
