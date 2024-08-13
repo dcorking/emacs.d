@@ -204,6 +204,7 @@ Other errors while reverting a buffer are reported only as messages."
 (global-set-key (kbd "C-c q") 'quit-window)
 (global-set-key (kbd "C-c t") 'restart-puma) ;; overrides (eat-other-window)
 (global-set-key (kbd "C-c u") 'revert-buffer) ;; overrides (move-dup-duplicate-up)
+(global-set-key (kbd "C-c w") 'whitespace-cleanup) ;; because cleanup on save doesn't always work
 
 (provide 'init-local)
 ;;; init-local.el ends here
