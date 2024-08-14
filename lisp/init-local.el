@@ -196,16 +196,23 @@ Other errors while reverting a buffer are reported only as messages."
 (put 'scroll-left 'disabled nil)
 
 (when (fboundp 'kmacro)
-  (defalias 'restart-puma
+  (defalias 'dcorking-restart-puma
     (kmacro "C-c p d t m p / <return> T <return> q"))
   )
+
+(defun dcorking-save-desktop-default ()
+  "Save desktop in ~/.emacs.d/.  Doesn't ask for path."
+  (interactive)
+  (desktop-save "~/.emacs.d/")
+  (message "saved destop in ~/.emacs.d/ "))
 
 ;; personal global keybindings
 (global-set-key (kbd "C-c b") 'bury-buffer)
 (global-set-key (kbd "C-c l") 'magit-blame-addition)
 (global-set-key (kbd "C-c q") 'quit-window)
+(global-set-key (kbd "C-c s") 'dcorking-save-desktop-default)
 (when (fboundp 'restart-puma)
-  (global-set-key (kbd "C-c t") 'restart-puma)      ;; overrides (eat-other-window)
+  (global-set-key (kbd "C-c t") 'dcorking-restart-puma) ;; overrides (eat-other-window)
   )
 (global-set-key (kbd "C-c u") 'revert-buffer) ;; overrides (move-dup-duplicate-up)
 (global-set-key (kbd "C-c w") 'whitespace-cleanup) ;; because cleanup on save doesn't always work
