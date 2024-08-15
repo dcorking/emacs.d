@@ -1,3 +1,10 @@
+;;; package --- an init script to tweak purcell/emacs.d
+;;; Commentary:
+;; Intended to work with purcell/emacs.d and my custom list of packages (see custom.el)
+;; Won't work on its own
+
+;;; Code:
+
 ;;
 ;; Prerequisites:
 ;;
@@ -28,6 +35,9 @@
   (add-hook 'ruby-mode-hook #'rubocop-mode))
 ;; default keybindings for projectile-rails 'C-c r' https://github.com/asok/projectile-rails#interactive-commands
 (when (maybe-require-package 'projectile-rails)
+  (defvar projectile-rails-mode-map
+    (make-sparse-keymap)
+    "placeholder definition to keep flymake happy")
   (eval-after-load "projectile-rails" (lambda () (define-key projectile-rails-mode-map (kbd "C-c r") 'projectile-rails-command-map))))
 
 ;;
@@ -131,16 +141,15 @@
 
 (defun renumber-list (start end &optional num)
   "Renumber the list items in the current START..END region.
-    If optional prefix arg NUM is given, start numbering from that number
-    instead of 1.
+   If optional prefix arg NUM is given, start numbering from that
+   number instead of 1.
 
 *Warning:* If you don't select a region, this may *renumber all the subsequent
  list items*, throughout the remainder of the document
 
 By AlexSchroeder, 2003
 https://www.emacswiki.org/emacs/AlexSchroeder from
-https://www.emacswiki.org/emacs/RenumberList
-"
+https://www.emacswiki.org/emacs/RenumberList"
   (interactive "*r\np")
   (save-excursion
     (goto-char start)
@@ -204,7 +213,7 @@ Other errors while reverting a buffer are reported only as messages."
   "Save desktop in ~/.emacs.d/.  Doesn't ask for path."
   (interactive)
   (desktop-save "~/.emacs.d/")
-  (message "saved destop in ~/.emacs.d/ "))
+  (message "saved desktop in ~/.emacs.d/ "))
 
 ;; personal global keybindings
 (global-set-key (kbd "C-c b") 'bury-buffer)
