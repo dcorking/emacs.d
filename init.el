@@ -1,13 +1,18 @@
-;; -*- lexical-binding: t -*-
-(setq debug-on-error t)
+;;; init.el --- Load the full configuration -*- lexical-binding: t -*-
+;;; Commentary:
 
-;;; This file bootstraps the configuration, which is divided into
-;;; a number of other files.
+;; This file bootstraps the configuration, which is divided into
+;; a number of other files.
 
-(let ((minver "24.4"))
+;;; Code:
+
+;; Produce backtraces when errors occur: can be helpful to diagnose startup issues
+;;(setq debug-on-error t)
+
+(let ((minver "27.1"))
   (when (version< emacs-version minver)
     (error "Your Emacs is too old -- this config requires v%s or higher" minver)))
-(when (version< emacs-version "25.1")
+(when (version< emacs-version "28.1")
   (message "Your Emacs is old, and some functionality in this config will be disabled. Please upgrade if possible."))
 
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
@@ -16,37 +21,44 @@
 (defconst *spell-check-support-enabled* nil) ;; Enable with t if you prefer
 (defconst *is-a-mac* (eq system-type 'darwin))
 
-;;----------------------------------------------------------------------------
-;; Adjust garbage collection thresholds during startup, and thereafter
-;;----------------------------------------------------------------------------
-(let ((normal-gc-cons-threshold (* 20 1024 1024))
-      (init-gc-cons-threshold (* 128 1024 1024)))
-  (setq gc-cons-threshold init-gc-cons-threshold)
-  (add-hook 'emacs-startup-hook
-            (lambda () (setq gc-cons-threshold normal-gc-cons-threshold))))
+
+;; Adjust garbage collection threshold for early startup (see use of gcmh below)
+(setq gc-cons-threshold (* 128 1024 1024))
 
-;;----------------------------------------------------------------------------
+
+;; Process performance tuning
+
+(setq read-process-output-max (* 4 1024 1024))
+(setq process-adaptive-read-buffering nil)
+
+
 ;; Bootstrap config
-;;----------------------------------------------------------------------------
-(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+
+
+(setq custom-file (locate-user-emacs-file "custom.el"))
 (require 'init-utils)
 (require 'init-site-lisp) ;; Must come before elpa, as it may provide package.el
 ;; Calls (package-initialize)
 (require 'init-elpa)      ;; Machinery for installing required packages
 (require 'init-exec-path) ;; Set up $PATH
 
-;;----------------------------------------------------------------------------
+
+;; General performance tuning
+(when (require-package 'gcmh)
+  (setq gcmh-high-cons-threshold (* 128 1024 1024))
+  (add-hook 'after-init-hook (lambda ()
+                               (gcmh-mode)
+                               (diminish 'gcmh-mode))))
+
+(setq jit-lock-defer-time 0)
+
+
 ;; Allow users to provide an optional "init-preload-local.el"
-;;----------------------------------------------------------------------------
 (require 'init-preload-local nil t)
 
-;;----------------------------------------------------------------------------
 ;; Load configs for specific features and modes
-;;----------------------------------------------------------------------------
-
-(require-package 'wgrep)
 (require-package 'diminish)
-(require-package 'scratch)
+(maybe-require-package 'scratch)
 (require-package 'command-log-mode)
 
 (require 'init-frame-hooks)
@@ -59,14 +71,13 @@
 (require 'init-grep)
 (require 'init-uniquify)
 (require 'init-ibuffer)
-(require 'init-flycheck)
+(require 'init-flymake)
+(require 'init-eglot)
 
 (require 'init-recentf)
-(require 'init-smex)
-(require 'init-ivy)
-;;(require 'init-helm)
+(require 'init-minibuffer)
 (require 'init-hippie-expand)
-(require 'init-company)
+(require 'init-corfu)
 (require 'init-windows)
 (require 'init-sessions)
 (require 'init-mmm)
@@ -82,7 +93,7 @@
 (require 'init-projectile)
 
 (require 'init-compile)
-;;(require 'init-crontab)
+(require 'init-crontab)
 (require 'init-textile)
 (require 'init-markdown)
 (require 'init-csv)
@@ -102,20 +113,24 @@
 (require 'init-ruby)
 (require 'init-rails)
 (require 'init-sql)
+(require 'init-ocaml)
+(require 'init-j)
+(require 'init-nim)
 (require 'init-rust)
 (require 'init-toml)
 (require 'init-yaml)
 (require 'init-docker)
 (require 'init-terraform)
-;;(require 'init-nix)
+(require 'init-nix)
 (maybe-require-package 'nginx-mode)
+(maybe-require-package 'just-mode)
+(maybe-require-package 'justl)
 
 (require 'init-paredit)
 (require 'init-lisp)
-(require 'init-slime)
+(require 'init-sly)
 (require 'init-clojure)
 (require 'init-clojure-cider)
-(require 'init-common-lisp)
 
 (when *spell-check-support-enabled*
   (require 'init-spelling))
@@ -125,54 +140,54 @@
 (require 'init-folding)
 (require 'init-dash)
 
-;;(require 'init-twitter)
-;; (require 'init-mu)
 (require 'init-ledger)
+(require 'init-lua)
+(require 'init-uiua)
+(require 'init-zig)
+(require 'init-terminals)
+
 ;; Extra packages which don't require any configuration
 
+(require-package 'sudo-edit)
 (require-package 'gnuplot)
-(require-package 'lua-mode)
 (require-package 'htmlize)
-(require-package 'dsvn)
 (when *is-a-mac*
   (require-package 'osx-location))
-(unless (eq system-type 'windows-nt)
-  (maybe-require-package 'daemons))
 (maybe-require-package 'dotenv-mode)
+(maybe-require-package 'shfmt)
 
 (when (maybe-require-package 'uptimes)
   (setq-default uptimes-keep-count 200)
   (add-hook 'after-init-hook (lambda () (require 'uptimes))))
 
+(when (fboundp 'global-eldoc-mode)
+  (add-hook 'after-init-hook 'global-eldoc-mode))
 
-;;----------------------------------------------------------------------------
+(require 'init-direnv)
+
+(when (and (require 'treesit nil t)
+           (fboundp 'treesit-available-p)
+           (treesit-available-p))
+  (require 'init-treesitter))
+
+
+
 ;; Allow access from emacsclient
-;;----------------------------------------------------------------------------
 (add-hook 'after-init-hook
           (lambda ()
             (require 'server)
             (unless (server-running-p)
               (server-start))))
 
-;;----------------------------------------------------------------------------
 ;; Variables configured via the interactive 'customize' interface
-;;----------------------------------------------------------------------------
 (when (file-exists-p custom-file)
   (load custom-file))
 
-
-;;----------------------------------------------------------------------------
 ;; Locales (setting them earlier in this file doesn't work in X)
-;;----------------------------------------------------------------------------
 (require 'init-locales)
 
-
-;;----------------------------------------------------------------------------
 ;; Allow users to provide an optional "init-local" containing personal settings
-;;----------------------------------------------------------------------------
 (require 'init-local nil t)
-
-
 
 (provide 'init)
 
@@ -180,3 +195,4 @@
 ;; coding: utf-8
 ;; no-byte-compile: t
 ;; End:
+;;; init.el ends here

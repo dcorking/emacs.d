@@ -17,6 +17,7 @@ CVS
 cookies
 /newsticker
 \#*
+/tree-sitter
 /elpa
 /elpa-*
 site-lisp/package/
@@ -48,3 +49,12 @@ site-lisp/package/
 /rake.cache
 /plantuml.jar
 /magithub
+.cache/
+/forge-database.sqlite
+/transient
+/.lsp-session-v1
+/smex-items
+/eln-cache/
+/projects
+/forge-*.sqlite
+/projectile.cache

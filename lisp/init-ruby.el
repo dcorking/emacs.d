@@ -1,11 +1,14 @@
+;;; init-ruby.el --- Support for the Ruby language -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
 ;;; Basic ruby setup
-(require-package 'ruby-mode)
 (require-package 'ruby-hash-syntax)
 
 (add-auto-mode 'ruby-mode
-               "Rakefile\\'" "\\.rake\\'" "\\.rxml\\'"
-               "\\.rjs\\'" "\\.irbrc\\'" "\\.pryrc\\'" "\\.builder\\'" "\\.ru\\'"
-               "\\.gemspec\\'" "Gemfile\\'" "Kirkfile\\'")
+               "\\.rxml\\'"
+               "\\.rjs\\'" "\\.irbrc\\'" "\\.pryrc\\'" "\\.builder\\'"
+               "\\.gemspec\\'" "Kirkfile\\'")
 (add-auto-mode 'conf-mode "Gemfile\\.lock\\'")
 
 (setq-default
@@ -14,8 +17,8 @@
 
 (add-hook 'ruby-mode-hook 'subword-mode)
 
-(after-load 'page-break-lines
-  (push 'ruby-mode page-break-lines-modes))
+(with-eval-after-load 'page-break-lines
+  (add-to-list 'page-break-lines-modes 'ruby-mode))
 
 (require-package 'rspec-mode)
 
@@ -28,29 +31,33 @@
 
 ;;; Inferior ruby
 (require-package 'inf-ruby)
+(with-eval-after-load 'inf-ruby
+  (defun sanityinc/ruby-load-file (&optional choose-file)
+    (interactive "P")
+    (if (or choose-file (not buffer-file-name))
+        (call-interactively 'ruby-load-file)
+      (save-some-buffers)
+      (ruby-load-file buffer-file-name)))
+  (define-key inf-ruby-minor-mode-map [remap ruby-load-file] 'sanityinc/ruby-load-file))
 
 
 
 ;;; Ruby compilation
 (require-package 'ruby-compilation)
 
-(after-load 'ruby-mode
-  (let ((m ruby-mode-map))
-    (define-key m [S-f7] 'ruby-compilation-this-buffer)
-    (define-key m [f7] 'ruby-compilation-this-test)))
+(with-eval-after-load 'ruby-mode
+  (define-key ruby-mode-map [S-f7] 'ruby-compilation-this-buffer)
+  (define-key ruby-mode-map [f7] 'ruby-compilation-this-test))
 
-(after-load 'ruby-compilation
+(with-eval-after-load 'ruby-compilation
   (defalias 'rake 'ruby-compilation-rake))
 
 
 
 ;;; Robe
 (when (maybe-require-package 'robe)
-  (after-load 'ruby-mode
-    (add-hook 'ruby-mode-hook 'robe-mode))
-  (after-load 'robe
-    (after-load 'company
-      (push 'company-robe company-backends))))
+  (with-eval-after-load 'ruby-mode
+    (add-hook 'ruby-mode-hook 'robe-mode)))
 
 
 
@@ -60,15 +67,12 @@
 
 
 
-(require-package 'goto-gem)
-
-
 (require-package 'bundler)
 
 
 (when (maybe-require-package 'yard-mode)
   (add-hook 'ruby-mode-hook 'yard-mode)
-  (after-load 'yard-mode
+  (with-eval-after-load 'yard-mode
     (diminish 'yard-mode)))
 
 
@@ -81,11 +85,10 @@
   (add-hook (derived-mode-hook-name mode) (lambda () (require 'mmm-erb)))
   (mmm-add-mode-ext-class mode "\\.erb\\'" 'erb))
 
-(let ((html-erb-modes '(html-mode html-erb-mode nxml-mode)))
-  (dolist (mode html-erb-modes)
-    (sanityinc/set-up-mode-for-erb mode)
-    (mmm-add-mode-ext-class mode "\\.r?html\\(\\.erb\\)?\\'" 'html-js)
-    (mmm-add-mode-ext-class mode "\\.r?html\\(\\.erb\\)?\\'" 'html-css)))
+(dolist (mode '(html-mode html-erb-mode nxml-mode))
+  (sanityinc/set-up-mode-for-erb mode)
+  (mmm-add-mode-ext-class mode "\\.r?html\\(\\.erb\\)?\\'" 'html-js)
+  (mmm-add-mode-ext-class mode "\\.r?html\\(\\.erb\\)?\\'" 'html-css))
 
 (mapc 'sanityinc/set-up-mode-for-erb
       '(coffee-mode js-mode js2-mode js3-mode markdown-mode textile-mode))
@@ -102,11 +105,8 @@
   (mmm-add-mode-ext-class mode "\\.js\\.erb\\'" 'erb))
 
 
-;;----------------------------------------------------------------------------
+
 ;; Ruby - my convention for heredocs containing SQL
-;;----------------------------------------------------------------------------
-
-;; Needs to run after rinari to avoid clobbering font-lock-keywords?
 
 ;; (require-package 'mmm-mode)
 ;; (eval-after-load 'mmm-mode
@@ -121,8 +121,9 @@
 ;;          :delimiter-mode nil)))
 ;;      (mmm-add-mode-ext-class 'ruby-mode "\\.rb\\'" 'ruby-heredoc-sql)))
 
-;(add-to-list 'mmm-set-file-name-for-modes 'ruby-mode)
+;; (add-to-list 'mmm-set-file-name-for-modes 'ruby-mode)
 
 
 
 (provide 'init-ruby)
+;;; init-ruby.el ends here
