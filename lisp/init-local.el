@@ -221,10 +221,12 @@ Other errors while reverting a buffer are reported only as messages."
 (global-set-key (kbd "C-c q") 'quit-window)
 (global-set-key (kbd "C-c s") 'dcorking-save-desktop-default)
 (when (fboundp 'restart-puma)
-  (global-set-key (kbd "C-c t") 'dcorking-restart-puma) ;; overrides (eat-other-window)
+  (global-set-key (kbd "C-c t") 'dcorking-restart-puma) ;; overrides binding to (eat-other-window)
   )
-(global-set-key (kbd "C-c u") 'revert-buffer) ;; overrides (move-dup-duplicate-up)
+(global-set-key (kbd "C-c u") 'revert-buffer) ;; overrides binding to (move-dup-duplicate-up)
 (global-set-key (kbd "C-c w") 'whitespace-cleanup) ;; because cleanup on save doesn't always work
+(global-set-key (kbd "C-<next>") 'tab-next) ;; C-PgUp overrides binding to (scroll-left)
+(global-set-key (kbd "C-<prior>") 'tab-previous) ;; C-PgDn overrides binding to (scroll-right)
 
 (provide 'init-local)
 ;;; init-local.el ends here
