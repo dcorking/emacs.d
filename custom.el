@@ -21,6 +21,7 @@
  '(eat-semi-char-non-bound-keys
    '([27 119]
      [27 119]
+     [27 119]
      [24]
      [28]
      [17]
@@ -121,6 +122,7 @@
  '(flycheck-color-mode-line-face-to-color 'mode-line-buffer-id)
  '(frame-background-mode 'dark)
  '(global-linum-mode nil)
+ '(global-move-dup-mode t)
  '(global-yascroll-bar-mode t)
  '(gnutls-trustfiles
    '("/etc/ssl/certs/ca-certificates.crt" "/etc/pki/tls/certs/ca-bundle.crt" "/etc/ssl/ca-bundle.pem" "/usr/ssl/certs/ca-bundle.crt" "/usr/local/share/certs/ca-root-nss.crt" "/etc/ssl/cert.pem"))
