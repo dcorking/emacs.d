@@ -227,6 +227,8 @@ Other errors while reverting a buffer are reported only as messages."
 (global-set-key (kbd "C-c w") 'whitespace-cleanup) ;; because cleanup on save doesn't always work
 (global-set-key (kbd "C-<next>") 'tab-next) ;; C-PgUp overrides binding to (scroll-left)
 (global-set-key (kbd "C-<prior>") 'tab-previous) ;; C-PgDn overrides binding to (scroll-right)
+(global-set-key (kbd "M-<up>") 'move-dup-move-lines-up)
+(global-set-key (kbd "M-<down>") 'move-dup-move-lines-down)
 
 (provide 'init-local)
 ;;; init-local.el ends here
