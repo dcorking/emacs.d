@@ -163,6 +163,7 @@
      (ruby-compilation-executable . "jruby")))
  '(select-enable-primary t nil nil "This allows M-y to yank from a terminal mouse selection")
  '(session-use-package t nil (session))
+ '(shell-command-with-editor-mode t)
  '(show-paren-mode t)
  '(timeclock-mode-line-display t)
  '(tool-bar-mode nil)

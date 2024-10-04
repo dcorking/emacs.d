@@ -215,6 +215,16 @@ Other errors while reverting a buffer are reported only as messages."
   (desktop-save "~/.emacs.d/")
   (message "saved desktop in ~/.emacs.d/ "))
 
+;; allow inferior and remote shells to use current Emacs as $EDITOR
+;; see https://github.com/magit/with-editor/blob/main/README.org
+;;
+;; TODO: will eat work with this?
+(when (maybe-require-package 'with-editor)
+  (add-hook 'shell-mode-hook  'with-editor-export-editor)
+  (add-hook 'eshell-mode-hook 'with-editor-export-editor)
+  (add-hook 'term-exec-hook   'with-editor-export-editor)
+  (add-hook 'vterm-mode-hook  'with-editor-export-editor))
+
 ;; personal global keybindings
 (global-set-key (kbd "C-c b") 'bury-buffer)
 (global-set-key (kbd "C-c l") 'magit-blame-addition)
