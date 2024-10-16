@@ -225,6 +225,10 @@ Other errors while reverting a buffer are reported only as messages."
   (add-hook 'term-exec-hook   'with-editor-export-editor)
   (add-hook 'vterm-mode-hook  'with-editor-export-editor))
 
+;; isearch in PDFs
+(when (maybe-require-package 'pdf-tools)
+  (pdf-tools-install))
+
 ;; personal global keybindings
 (global-set-key (kbd "C-c b") 'bury-buffer)
 (global-set-key (kbd "C-c l") 'magit-blame-addition)
