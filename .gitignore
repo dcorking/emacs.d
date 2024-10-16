@@ -2,6 +2,7 @@
 /.emacs.desktop
 /auto-save-list
 /network-security.data
+/multisession
 /.session
 /session.*
 *.elc
@@ -41,6 +42,7 @@ site-lisp/package/
 /ido.last
 /recentf
 /viper
+/xkcd
 /games
 /projectile.cache
 /projectile-bookmarks.eld
