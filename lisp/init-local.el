@@ -215,6 +215,12 @@ Other errors while reverting a buffer are reported only as messages."
   (desktop-save "~/.emacs.d/")
   (message "saved desktop in ~/.emacs.d/ "))
 
+(defun dcorking-linebreaks-at-commas ()
+  "Query replace the space after a comma with a newline."
+  (interactive)
+  (query-replace ", " ",
+"))
+
 ;; allow inferior and remote shells to use current Emacs as $EDITOR
 ;; see https://github.com/magit/with-editor/blob/main/README.org
 ;;
