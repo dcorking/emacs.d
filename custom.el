@@ -197,6 +197,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(tab-bar ((t (:background "#2a2a2a" :foreground "#969896" :height 1.0)))))
 (provide 'custom)
 ;;; custom.el ends here
