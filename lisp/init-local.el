@@ -40,6 +40,11 @@
     "placeholder definition to keep flymake happy")
   (eval-after-load "projectile-rails" (lambda () (define-key projectile-rails-mode-map (kbd "C-c r") 'projectile-rails-command-map))))
 
+;; TODO: override C-x t
+;; (define-key ruby-mode-map (kbd "C-x t") 'ruby-compilation-this-buffer)
+;; with C-x t 2 runs the command tab-new (found in global-map), which is an
+;; alias for ‘tab-bar-new-tab’ in ‘tab-bar.el’.
+
 ;;
 ;; snippets (like textmate, and all the other editors that copied textmate)
 ;;
