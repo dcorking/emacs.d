@@ -18,6 +18,7 @@
  '(default-frame-alist '((internal-border-width . 0) (vertical-scroll-bars)))
  '(default-input-method "rfc1345")
  '(delete-by-moving-to-trash t)
+ '(dired-dwim-target 'dired-dwim-target-next-visible)
  '(eat-semi-char-non-bound-keys
    '([27 119]
      [27 119]

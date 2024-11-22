@@ -211,8 +211,8 @@ Other errors while reverting a buffer are reported only as messages."
 
 (when (fboundp 'kmacro)
   (defalias 'dcorking-restart-puma
-    (kmacro "C-c p d t m p / <return> T <return> q"))
-  )
+    (kmacro "C-c p d t m p / <return> T <return> q")
+    "this is horribly fragile. It depends on restart.txt being the first item in the tmp/ directory, which is probably not true."))
 
 (defun dcorking-save-desktop-default ()
   "Save desktop in ~/.emacs.d/.  Doesn't ask for path."
