@@ -7,6 +7,7 @@
    [default bold shadow italic underline bold bold-italic bold])
  '(ansi-color-names-vector
    (vector "#000000" "#d54e53" "#b9ca4a" "#e7c547" "#7aa6da" "#c397d8" "#70c0b1" "#eaeaea"))
+ '(auto-save-default t)
  '(beacon-color "#d54e53")
  '(browse-url-browser-function 'browse-url-default-browser)
  '(browse-url-firefox-arguments '("--private-window"))
