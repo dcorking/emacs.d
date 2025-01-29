@@ -240,6 +240,10 @@ Other errors while reverting a buffer are reported only as messages."
 (when (maybe-require-package 'pdf-tools)
   (pdf-tools-install))
 
+;; add macOS Apple Silicon homebrew to Info documentation list
+(add-to-list  'Info-directory-list "/opt/homebrew/share/info" true)
+(add-to-list 'Info-default-directory-list "/opt/homebrew/share/info" true)
+
 ;; personal global keybindings
 (global-set-key (kbd "C-c b") 'bury-buffer)
 (global-set-key (kbd "C-c l") 'magit-blame-addition)
