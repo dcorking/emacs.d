@@ -40,6 +40,12 @@
     "placeholder definition to keep flymake happy")
   (eval-after-load "projectile-rails" (lambda () (define-key projectile-rails-mode-map (kbd "C-c r") 'projectile-rails-command-map))))
 
+
+;; TODO: make highlight indentation in all ruby switchable
+(when (maybe-require-package 'highlight-indentation)
+  (with-eval-after-load 'ruby-mode
+    (add-hook 'ruby-mode-hook 'highlight-indentation-mode)))
+
 ;; TODO: override C-x t
 ;; (define-key ruby-mode-map (kbd "C-x t") 'ruby-compilation-this-buffer)
 ;; with C-x t 2 runs the command tab-new (found in global-map), which is an
@@ -241,8 +247,8 @@ Other errors while reverting a buffer are reported only as messages."
   (pdf-tools-install))
 
 ;; add macOS Apple Silicon homebrew to Info documentation list
-(add-to-list  'Info-directory-list "/opt/homebrew/share/info" true)
-(add-to-list 'Info-default-directory-list "/opt/homebrew/share/info" true)
+(add-to-list  'Info-directory-list "/opt/homebrew/share/info" t)
+(add-to-list 'Info-default-directory-list "/opt/homebrew/share/info" t)
 
 ;; personal global keybindings
 (global-set-key (kbd "C-c b") 'bury-buffer)
