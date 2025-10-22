@@ -158,7 +158,8 @@
      (utf-8)))
  '(ruby-insert-encoding-magic-comment nil)
  '(safe-local-variable-values
-   '((flycheck-disabled-checkers quote
+   '((rubocop-prefer-system-executable . t)
+     (flycheck-disabled-checkers quote
                                  (emacs-lisp-checkdoc))
      (no-byte-compile t)
      (frozen-string-literal . true)
