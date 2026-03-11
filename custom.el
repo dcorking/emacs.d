@@ -12,6 +12,7 @@
  '(browse-url-browser-function 'browse-url-default-browser)
  '(browse-url-firefox-arguments '("--private-window"))
  '(column-number-mode t)
+ '(corfu-auto nil)
  '(css-indent-offset 2)
  '(custom-enabled-themes '(sanityinc-tomorrow-bright))
  '(custom-safe-themes
