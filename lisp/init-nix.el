@@ -1,20 +1,20 @@
-(maybe-require-package 'nix-mode)
-(maybe-require-package 'nix-sandbox)
-(maybe-require-package 'nix-buffer)
+;;; init-nix.el --- Support for the Nix package manager -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
 
-(when (maybe-require-package 'nixos-options)
-  (when (maybe-require-package 'company-nixos-options)
-    (after-load 'company
+(if (maybe-require-package 'nix-ts-mode)
+    ;; If the TS mode is installed, then the non-TS mode is not, so
+    ;; nobody will have added an auto-mode-alist entry
+    (add-to-list 'auto-mode-alist '("\\.nix\\'" . nix-ts-mode))
+  (maybe-require-package 'nix-mode))
 
-      ;; Patch pending https://github.com/travisbhartwell/nix-emacs/pull/46
-      (after-load 'company-nixos-options
-        (defun company-nixos--in-nix-context-p ()
-          (or (derived-mode-p 'nix-mode 'nix-repl-mode)
-              (let ((file-name (buffer-file-name (current-buffer))))
-                (and file-name (equal "nix" (file-name-extension file-name)))))))
+(with-eval-after-load 'eglot
+  ;; Prefer nixd to nil, and enable in nix-ts-mode too
+  (add-to-list 'eglot-server-programs
+               `((nix-mode nix-ts-mode) . ,(eglot-alternatives '("nixd" "nil")))))
 
-      (add-to-list 'company-backends 'company-nixos-options))))
-
-
+(maybe-require-package 'nixpkgs-fmt)
+(maybe-require-package 'nixfmt)
 
 (provide 'init-nix)
+;;; init-nix.el ends here
