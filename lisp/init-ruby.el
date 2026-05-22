@@ -67,7 +67,8 @@
 
 
 
-(require-package 'bundler)
+;; (error ("No version of bundler >= nil is available"))
+;; (require-package 'bundler)
 
 
 (when (maybe-require-package 'yard-mode)

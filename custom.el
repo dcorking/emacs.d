@@ -203,6 +203,8 @@
  '(version-control t)
  '(web-mode-markup-indent-offset 2)
  '(window-divider-mode nil))
+ '(safe-local-variable-directories '("/Users/david1/.emacs.d/"))
+ '(session-use-package t nil (session))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
