@@ -86,74 +86,96 @@
  '(org-pomodoro-long-break-frequency 5)
  '(org-pomodoro-short-break-length 2)
  '(package-selected-packages
-   '(pdf-tools with-editor rjsx-mode sml-mode yasnippet-snippets
-               highlight-indentation rubocop slim-mode envrc uptimes
-               shfmt dotenv-mode osx-location htmlize gnuplot
-               sudo-edit eat uiua-ts-mode lua-mode flycheck-ledger
-               ledger-mode dash-at-point origami regex-tool
-               info-colors flycheck-clojure cider elein cljsbuild-mode
-               clojure-ts-mode sly-repl-ansi-color sly-macrostep
-               sly-asdf sly cask-mode flycheck-relint cl-libify
-               package-lint-flymake highlight-quoted macrostep
-               aggressive-indent immortal-scratch auto-compile ipretty
-               elisp-slime-nav puni paredit justl just-mode nginx-mode
-               nixpkgs-fmt nix-ts-mode terraform-mode
-               docker-compose-mode dockerfile-mode docker yaml-mode
-               flycheck-rust rust-mode flycheck-nim nim-mode j-mode
-               dune-format dune tuareg sqlformat projectile-rails
-               yard-mode bundler yari robe ruby-compilation inf-ruby
-               rspec-mode ruby-hash-syntax add-node-modules-path psci
-               purescript-mode elm-test-runner elm-mode dhall-mode
-               haskell-mode reformatter toml-mode ruff-format
-               flymake-ruff pip-requirements restclient httprepl
-               haml-mode css-eldoc sass-mode rainbow-mode tagedit
-               org-pomodoro writeroom-mode org-cliplink grab-mac-link
-               smarty-mode php-mode js-comint xref-js2 prettier-js
-               typescript-mode js2-mode json-mode erlang csv-mode
-               markdown-mode textile-mode crontab-mode alert
-               ibuffer-projectile projectile flymake-actionlint
-               github-review forge github-clone bug-reference-github
-               yagist git-commit magit-todos magit git-link
-               git-timemachine git-modes vc-darcs diff-hl
-               whitespace-cleanup-mode which-key
-               highlight-escape-sequences whole-line-or-region
-               move-dup page-break-lines multiple-cursors avy
-               browse-kill-ring symbol-overlay rainbow-delimiters
-               mode-line-bell vlf list-unicode-display unfill mmm-mode
-               session windswap switch-window corfu-terminal corfu
-               orderless marginalia embark-consult consult embark
-               vertico consult-eglot eglot flymake-flycheck flymake
-               ibuffer-vc rg wgrep anzu disable-mouse
-               default-text-scale ns-auto-titlebar dimmer
-               color-theme-sanityinc-tomorrow
-               color-theme-sanityinc-solarized command-log-mode
-               scratch diminish gcmh exec-path-from-shell
-               gnu-elpa-keyring-update seq swift-mode free-keys ztree
-               xkcd psc-ide skewer-less skewer-mode coffee-mode
-               git-blamed consult-flycheck fullframe clojure-mode
-               nix-mode hierarchy md4rd slime nixos-options nix-buffer
-               nix-sandbox beacon affe atomic-chrome yascroll
-               corfu-doc slime-company flycheck-package
-               company-nixos-options company-terraform racer
-               merlin-eldoc merlin-company merlin flycheck-elm dante
-               company-anaconda anaconda-mode company-php
-               browse-at-remote company-quickhelp company
-               flycheck-color-mode-line flycheck vue-mode daemons
-               cl-lib-highlight gitconfig-mode gitignore-mode
-               goto-line-preview smex minitest devdocs-lookup ripgrep
-               vterm package-lint dsvn hippie-expand-slime
-               paredit-everywhere goto-gem hindent intero cmd-to-echo
-               darcsum guide-key expand-region deadgrep wanderlust
-               racket-mode markdown-preview-mode bug-hunter web-mode
-               js2-refactor js-doc graphql-mode editorconfig
-               editorconfig-generate sqlup-mode ivy-historian rudel
-               indium ruby-mode git-messenger flycheck-soar
-               projectile-ripgrep ag smartparens solidity-mode nlinum
-               company-solidity osx-trash handlebars-mode
-               string-inflection asy-mode web-beautify rust-playground
-               multi-term tidy project-local-variables undo-tree
-               org-fstree github-issues dynamic-spaces edit-server
-               pug-mode sql-indent scss-mode less-css-mode csv-nav) nil nil "alphasort these")
+   '(add-node-modules-path affe ag aggressive-indent alert anaconda-mode
+                           anzu asy-mode atomic-chrome auto-compile
+                           avy beacon browse-at-remote
+                           browse-kill-ring bug-hunter
+                           bug-reference-github bundler cask-mode
+                           cider cl-lib-highlight cl-libify
+                           cljsbuild-mode clojure-mode clojure-ts-mode
+                           cmd-to-echo coffee-mode
+                           color-theme-sanityinc-solarized
+                           color-theme-sanityinc-tomorrow
+                           command-log-mode company company-anaconda
+                           company-nixos-options company-php
+                           company-quickhelp company-solidity
+                           company-terraform consult consult-eglot
+                           consult-flycheck corfu corfu-doc
+                           corfu-terminal crontab-mode css-eldoc
+                           csv-mode csv-nav daemons dante darcsum
+                           dash-at-point deadgrep default-text-scale
+                           devdocs-lookup dhall-mode diff-hl diminish
+                           dimmer disable-mouse docker
+                           docker-compose-mode dockerfile-mode
+                           dotenv-mode dsvn dune dune-format
+                           dynamic-spaces eat edit-server editorconfig
+                           editorconfig-generate eglot elein
+                           elisp-slime-nav elm-mode elm-test-runner
+                           embark embark-consult envrc erlang
+                           exec-path-from-shell expand-region flycheck
+                           flycheck-clojure flycheck-color-mode-line
+                           flycheck-elm flycheck-ledger flycheck-nim
+                           flycheck-package flycheck-relint
+                           flycheck-rust flycheck-soar flymake
+                           flymake-actionlint flymake-flycheck
+                           flymake-ruff forge free-keys fullframe gcmh
+                           git-blamed git-commit git-link
+                           git-messenger git-modes git-timemachine
+                           gitconfig-mode github-clone github-issues
+                           github-review gitignore-mode
+                           gnu-elpa-keyring-update gnuplot goto-gem
+                           goto-line-preview grab-mac-link
+                           graphql-mode guide-key haml-mode
+                           handlebars-mode haskell-mode hierarchy
+                           highlight-escape-sequences
+                           highlight-indentation highlight-quoted
+                           hindent hippie-expand-slime htmlize
+                           httprepl ibuffer-projectile ibuffer-vc
+                           immortal-scratch indium inf-ruby
+                           info-colors intero ipretty ivy-historian
+                           j-mode js-comint js-doc js2-mode
+                           js2-refactor json-mode just-mode justl
+                           ledger-mode less-css-mode
+                           list-unicode-display lua-mode macrostep
+                           magit magit-todos marginalia markdown-mode
+                           markdown-preview-mode md4rd merlin
+                           merlin-company merlin-eldoc minitest
+                           mmm-mode mode-line-bell move-dup multi-term
+                           multiple-cursors nginx-mode nim-mode
+                           nix-buffer nix-mode nix-sandbox nix-ts-mode
+                           nixos-options nixpkgs-fmt nlinum
+                           ns-auto-titlebar orderless org-cliplink
+                           org-fstree org-pomodoro origami
+                           osx-location osx-trash package-lint
+                           package-lint-flymake page-break-lines
+                           paredit paredit-everywhere pdf-tools
+                           php-mode pip-requirements prettier-js
+                           project-local-variables projectile
+                           projectile-rails projectile-ripgrep psc-ide
+                           psci pug-mode puni purescript-mode racer
+                           racket-mode rainbow-delimiters rainbow-mode
+                           reformatter regex-tool restclient rg
+                           ripgrep rjsx-mode robe rspec-mode rubocop
+                           ruby-compilation ruby-hash-syntax ruby-mode
+                           rudel ruff-format rust-mode rust-playground
+                           sass-mode scratch scss-mode seq session
+                           shfmt skewer-less skewer-mode slim-mode
+                           slime slime-company sly sly-asdf
+                           sly-macrostep sly-repl-ansi-color
+                           smartparens smarty-mode smex sml-mode
+                           solidity-mode sql-indent sqlformat
+                           sqlup-mode string-inflection sudo-edit
+                           swift-mode switch-window symbol-overlay
+                           tagedit terraform-mode textile-mode tidy
+                           toml-mode tuareg typescript-mode
+                           uiua-ts-mode undo-tree unfill uptimes
+                           vc-darcs vertico vlf vterm vue-mode
+                           wanderlust web-beautify web-mode wgrep
+                           which-key whitespace-cleanup-mode
+                           whole-line-or-region windswap with-editor
+                           writeroom-mode xkcd xref-js2 yagist
+                           yaml-mode yard-mode yari yascroll
+                           yasnippet-snippets ztree))
  '(ping-program-options '("-c 5"))
  '(prettier-js-command "prettier")
  '(proced-enable-color-flag t)
@@ -192,8 +214,8 @@
  '(version-control t)
  '(web-mode-markup-indent-offset 2)
  '(window-divider-mode nil))
- '(safe-local-variable-directories '("/Users/david1/.emacs.d/"))
- '(session-use-package t nil (session))
+'(safe-local-variable-directories '("/Users/david1/.emacs.d/"))
+'(session-use-package t nil (session))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
