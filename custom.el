@@ -162,6 +162,9 @@
      (japanese-cp932 . cp932)
      (utf-8)))
  '(ruby-insert-encoding-magic-comment nil)
+ '(safe-local-variable-directories
+   '("/Users/david1/.emacs.d/elpa-30.2/magit-20260518.1428/"
+     "/Users/david1/workspace/teachmonster/"))
  '(safe-local-variable-values
    '((rubocop-prefer-system-executable . t)
      (flycheck-disabled-checkers quote
