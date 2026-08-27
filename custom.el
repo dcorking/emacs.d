@@ -141,6 +141,7 @@
  '(magit-status-margin '(t "%a %m-%d %H:%M " magit-log-margin-width nil 18))
  '(markdown-command "pandoc --from gfm")
  '(markdown-fontify-code-blocks-natively t)
+ '(markdown-mermaid-mmdc-path "\"/opt/homebrew/bin/mmdc\"")
  '(menu-bar-mode t)
  '(mouse-wheel-progressive-speed t)
  '(nsm-save-host-names t)
