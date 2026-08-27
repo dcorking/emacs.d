@@ -246,9 +246,9 @@ Other errors while reverting a buffer are reported only as messages."
 (when (maybe-require-package 'pdf-tools)
   (pdf-tools-install))
 
-;; add macOS Apple Silicon homebrew to Info documentation list
+;; add macOS Apple Silicon homebrew and cask to Info documentation list
 (add-to-list  'Info-directory-list "/opt/homebrew/share/info" t)
-(add-to-list 'Info-default-directory-list "/opt/homebrew/share/info" t)
+(add-to-list  'Info-directory-list "/opt/homebrew/Caskroom/emacs-app/31.1/Emacs.app/Contents/Resources/info" t)
 
 ;; personal global keybindings
 (global-set-key (kbd "C-c b") 'bury-buffer)
