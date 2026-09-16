@@ -30,16 +30,26 @@
 ;; SLIM html templates
 (when (maybe-require-package 'slim-mode)
   (require 'slim-mode))
-;; rubocop lint
-(when (maybe-require-package 'rubocop)
-  (add-hook 'ruby-mode-hook #'rubocop-mode))
+
+;; rubocop lint. TODO: enable this, if at all, only for non-standardrb projects as, AFAICT, it naively runs rubocop without the standardrb
+;; config. Consider wiring it in to project local variables, or a detector for standardrb, or using either a flymake backend or an LSP
+;; (when (maybe-require-package 'rubocop)
+;;   (add-hook 'ruby-mode-hook #'rubocop-mode))
 ;; default keybindings for projectile-rails 'C-c r' https://github.com/asok/projectile-rails#interactive-commands
+
+(defun dcorking-disable-flymake-rubocop ()
+  (flymake--disable-backend 'flymake-flycheck:ruby-rubocop "Doesn't use standardrb config")
+  )
+
+(add-hook 'ruby-mode-hook #'dcorking-disable-flymake-rubocop)
+
+
+
 (when (maybe-require-package 'projectile-rails)
   (defvar projectile-rails-mode-map
     (make-sparse-keymap)
     "placeholder definition to keep flymake happy")
   (eval-after-load "projectile-rails" (lambda () (define-key projectile-rails-mode-map (kbd "C-c r") 'projectile-rails-command-map))))
-
 
 ;; TODO: make highlight indentation in all ruby switchable
 (when (maybe-require-package 'highlight-indentation)
