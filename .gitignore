@@ -46,6 +46,7 @@ site-lisp/package/
 /games
 /projectile.cache
 /projectile-bookmarks.eld
+/projectile-frecency.eld
 /anaconda-mode/
 /.historian
 /.uptimes.el
@@ -63,4 +64,3 @@ ac-comphist.dat
 /projects
 /request/curl-cookie-jar
 /forge-*.sqlite
-/projectile.cache
