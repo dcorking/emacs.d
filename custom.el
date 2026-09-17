@@ -124,6 +124,7 @@
  '(fci-rule-color "#424242")
  '(flycheck-color-mode-line-face-to-color 'mode-line-buffer-id)
  '(frame-background-mode 'dark)
+ '(ghostel-keymap-exceptions '("C-c" "C-x" "C-u" "C-h" "M-x" "M-:" "C-\\" "C-next" "C-next" "C-prior"))
  '(global-linum-mode nil)
  '(global-move-dup-mode t)
  '(global-yascroll-bar-mode t)
