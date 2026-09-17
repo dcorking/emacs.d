@@ -1,3 +1,4 @@
+;;; ...  -*- lexical-binding: nil -*-
 ;; ## added by OPAM user-setup for emacs / base ## 2cfdcafda6d58f1dfe93a46e434ff502 ## you can edit, but keep this line
 (provide 'opam-user-setup)
 

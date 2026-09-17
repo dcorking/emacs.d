@@ -1,4 +1,4 @@
-;;; package --- an init script to tweak purcell/emacs.d
+;;; package --- an init script to tweak purcell/emacs.d  -*- lexical-binding: t; -*-
 ;;; Commentary:
 ;; Intended to work with purcell/emacs.d and my custom list of packages (see custom.el)
 ;; Won't work on its own
@@ -42,8 +42,6 @@
   )
 
 (add-hook 'ruby-mode-hook #'dcorking-disable-flymake-rubocop)
-
-
 
 (when (maybe-require-package 'projectile-rails)
   (defvar projectile-rails-mode-map
