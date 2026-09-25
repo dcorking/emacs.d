@@ -43,6 +43,13 @@
 
 (add-hook 'ruby-mode-hook #'dcorking-disable-flymake-rubocop)
 
+(defun dcorking-refresh-ruby ()
+  "refresh ruby-mode in this buffer to install the latest flymake hook.
+
+Occasionally needed if init-local doesn't set up hooks before a ruby buffer is loaded"
+  (interactive)
+  (clean-mode) (ruby-mode))
+
 (when (maybe-require-package 'projectile-rails)
   (defvar projectile-rails-mode-map
     (make-sparse-keymap)
