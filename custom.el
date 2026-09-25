@@ -181,6 +181,7 @@
  '(session-use-package t nil (session))
  '(shell-command-with-editor-mode t)
  '(show-paren-mode t)
+ '(tab-bar-new-tab-to 'rightmost)
  '(timeclock-mode-line-display t)
  '(tool-bar-mode nil)
  '(uptimes-auto-save nil)
