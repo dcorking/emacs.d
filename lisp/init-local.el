@@ -51,6 +51,9 @@ Occasionally needed if init-local doesn't set up hooks before a ruby buffer is l
   (clean-mode) (ruby-mode))
 
 (when (maybe-require-package 'projectile-rails)
+  (with-eval-after-load 'ruby-mode
+    ;; should I do this or use projectile-rails-global-mode ??
+    (add-hook 'ruby-mode-hook 'projectile-rails-mode))
   (defvar projectile-rails-mode-map
     (make-sparse-keymap)
     "placeholder definition to keep flymake happy")
